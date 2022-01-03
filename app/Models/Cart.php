@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    use HasFactory;
+    use HasFactory,HasApiTokens;
+    protected $fillable = [
+       'CART_ID',
+       'ACCOUNT_ID',
+       'PRODUCT_ID',
+       'SOLUONG',
+       'TRANGTHAI',
+    ];
+    protected $primarykey = 'CART_ID';
+    protected $table = 'Cart';
 }

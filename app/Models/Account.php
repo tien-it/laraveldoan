@@ -7,5 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    use HasFactory;
+    use HasFactory,HasApiTokens;
+    protected $fillable = [
+        'ACCOUNT_ID',
+        'TENDANGNHAP',
+        'HOTEN',
+        'MATKHAU',
+        'SODIENTHOAI',
+        'EMAIL',
+        'DIACHI',
+        'GIOITINH',
+        'NGAYSINH',
+        'CHUCVU',
+        'TRANGTHAI',
+    ];
+    protected $primarykey = 'ACCOUNT_ID';
+    protected $table = 'Account';
 }
