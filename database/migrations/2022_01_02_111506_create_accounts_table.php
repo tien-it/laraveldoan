@@ -23,8 +23,8 @@ class CreateAccountsTable extends Migration
            $table->string('address')->nullable();
            $table->string('gender')->nullable();
            $table->dateTime('birthday')->nullable();
-           $table->bool('isAdmin')->nullable();
-           $table->integer('status')->nullable();
+           $table->bool('isAdmin');
+           $table->integer('status');
            $table->timestamps();
        });
     }

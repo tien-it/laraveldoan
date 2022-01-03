@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Account;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class AccountController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        //
+    
     }
 
     /**
@@ -44,10 +44,10 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($account_id)
+    public function show($product_id)
     {
-        $account = Account::find($account_id);
-        return view('accounts.show', array('account' => $account));
+        $product = Product::find($product_id);
+        return view('products.show', array('product' => $product));
     }
 
     /**
