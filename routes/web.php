@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\AccountController;
+use app\Http\Controllers\PricingController;
+use app\Http\Controllers\ProductTypesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +21,5 @@ Route::get('/', function () {
 
 Route::resource('accounts', AccountController::class);
 Route::resource('carts', CartController::class);
+Route::resource('Pricing', AccountController::class);
+Route::resource('ProductTypes', CartController::class);
