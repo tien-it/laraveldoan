@@ -35,10 +35,10 @@
 			<div class="content-top1">
 				<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi.png" alt="" />
 						</a>
-						<h3><a href="single.html">Tops</a></h3>
+						<h3><a href="{{route('single')}}">Tops</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
@@ -48,10 +48,10 @@
 				</div>	
 			<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi2.png" alt="" />
 						</a>
-						<h3><a href="single.html">T-Shirt</a></h3>
+						<h3><a href="{{route('single')}}">T-Shirt</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
@@ -62,10 +62,10 @@
 				</div>	
 			<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi4.png" alt="" />
 						</a>
-						<h3><a href="single.html">Shirt</a></h3>
+						<h3><a href="{{route('single')}}">Shirt</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
@@ -76,10 +76,10 @@
 				</div>	
 			<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi1.png" alt="" />
 						</a>
-						<h3><a href="single.html">Tops</a></h3>
+						<h3><a href="{{route('single')}}">Tops</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
@@ -93,10 +93,10 @@
 			<div class="content-top1">
 				<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi3.png" alt="" />
 						</a>
-						<h3><a href="single.html">Shirt</a></h3>
+						<h3><a href="{{route('single')}}">Shirt</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
@@ -107,10 +107,10 @@
 				</div>	
 			<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi5.png" alt="" />
 						</a>
-						<h3><a href="single.html">T-Shirt</a></h3>
+						<h3><a href="{{route('single')}}">T-Shirt</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
@@ -121,10 +121,10 @@
 				</div>	
 			<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi6.png" alt="" />
 						</a>
-						<h3><a href="single.html">Jeans</a></h3>
+						<h3><a href="{{route('single')}}">Jeans</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
@@ -135,10 +135,10 @@
 				</div>	
 			<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
+						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi7.png" alt="" />
 						</a>
-						<h3><a href="single.html">Tops</a></h3>
+						<h3><a href="{{route('single')}}">Tops</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
