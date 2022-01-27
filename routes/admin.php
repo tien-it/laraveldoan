@@ -7,9 +7,13 @@ Route::group(['prefix' => '/'], function () {
 Route::get('login', [Admin\LoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('login', [Admin\LoginController::class, 'login'])->name('admin.login.post');
 Route::get('logout', [Admin\LoginController::class, 'logout'])->name('admin.logout');
-Route::get('/', function () {
-    return view('admin.pages.home');
-})->name('home');
+Route::get('index', [Admin\LoginController::class, 'index'])->name('admin.index');
+Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('/', function () {
+        return view('admin.pages.home');
+    })->name('home');
+
+
 Route::get('/billing', function () {
     return view('admin.pages.billing');
 })->name('billing');
@@ -34,4 +38,5 @@ Route::get('/tables', function () {
 Route::get('/virtual-reality', function () {
     return view('admin.pages.virtual-reality');
 })->name('virtual-reality');
+});
 });

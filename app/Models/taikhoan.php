@@ -12,9 +12,9 @@ class taikhoan extends Model
         
         'TENDANGNHAP',
         'HOVATEN',
-        'MATKHAU',
+        'password',
         'SODIENTHOAI',
-        'EMAIL',
+        'email',
         'DIACHI',
         'GIOITINH',
         'NGAYSINH',             

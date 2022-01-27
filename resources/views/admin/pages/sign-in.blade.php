@@ -25,7 +25,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="{{route('profile')}}"">
+                  <a class="nav-link me-2" href="{{route('profile')}}">
                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
                     Profile
                   </a>
@@ -67,21 +67,22 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
-                    <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+
+
+                  
+
+                  <form class="mt-5 mb-5 login-input" action="{{ route('admin.login.post') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input class="form-control" type="email" id ="email" name="email"  placeholder="Email" autofocus value="{{ old('email') }}">
                     </div>
-                    <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                    </div>
-                    <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
-                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" id = "password" name="password" class="form-control" placeholder="Mật khẩu">
+                    </div> 
+                    <button class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng nhập</button>
                   </form>
+                  
+
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
@@ -123,3 +124,13 @@
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/argon-dashboard.min.js?v=2.0.0"></script>
 @endsection
+{{-- <form class="mt-5 mb-5 login-input" action="{{ route('admin.login.post') }}" method="POST">
+  @csrf
+  <div class="form-group">
+      <input class="form-control" type="email" id ="email" name="email"  placeholder="Email" autofocus value="{{ old('email') }}">
+  </div>
+  <div class="form-group">
+      <input class="form-control" type="password" id = "password" name="password" class="form-control" placeholder="Mật khẩu">
+  </div> 
+  <button class="btn login-form__btn submit w-100">Đăng nhập</button>
+</form> --}}
