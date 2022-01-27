@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
-    use AuthenticatesUsers;
-
 /**
 * Where to redirect admins after login.
 *
@@ -31,11 +29,11 @@ class LoginController extends Controller
     */
     public function showLoginForm()
     {
-        return view('admin.auth.login');
+        return view('admin.pages.login');
     }
 
     public function index()
     {
-        return view('admin.dashboard.index');
+         return view('admin.pages.home');
     }
 }

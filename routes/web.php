@@ -19,6 +19,7 @@ Route::prefix('/')->group(function () {
     Route::get('/', function () {
         return view('user.pages.home');
     })->name('home');
+   
     Route::get('/account', function () {
         return view('user.pages.account');
     })->name('account');
