@@ -2,26 +2,60 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class taikhoan extends Model
+class taikhoan extends Authenticatable
 {
-    use HasFactory;
-    protected $fillable = [
+    // use HasFactory;
+    // protected $fillable = [
         
-        'TENDANGNHAP',
-        'HOVATEN',
-        'password',
-        'SODIENTHOAI',
+    //     'TENDANGNHAP',
+    //     'HOVATEN',
+    //     'password',
+    //     'SODIENTHOAI',
+    //     'email',
+    //     'DIACHI',
+    //     'GIOITINH',
+    //     'NGAYSINH',             
+    //     'ISADMIN',
+    //     'TRANGTHAI',       
+    // ];
+    // protected $primarykey = 'id';
+    // protected $table = 'taikhoans';
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
         'email',
-        'DIACHI',
-        'GIOITINH',
-        'NGAYSINH',             
-        'ISADMIN',
-        'TRANGTHAI',       
+        'password',
     ];
-    protected $primarykey = 'id';
-    protected $table = 'taikhoans';
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
 }
