@@ -51,10 +51,9 @@ protected $redirectTo = '/user';
             'email' => $request->email,
             'password' => $request->password
         ], $request->get('remember'))) {
-            
-        return redirect()->intended(route('user.index'));
+            return redirect()->intended(route('user.index'));
         }
-    return back()->withInput($request->only('email', 'remember'));
+         return back()->withInput($request->only('email','remember'));
     }
     public function logout(Request $request)
     {

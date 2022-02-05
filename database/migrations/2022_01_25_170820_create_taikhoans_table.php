@@ -17,9 +17,9 @@ class CreateTaikhoansTable extends Migration
             $table->increments('id');
             $table->string('TENDANGNHAP');
             $table->string('HOVATEN');
+            $table->string('email');
             $table->string('password');
             $table->string('SODIENTHOAI');
-            $table->string('email');
             $table->string('DIACHI');
             $table->string('GIOITINH');
             $table->date('NGAYSINH');

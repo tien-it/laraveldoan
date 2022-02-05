@@ -23,7 +23,7 @@
 		
 			<div class="col-sm-4 header-left">		
 					<p class="log"><a href="{{route('account')}}"  >Login</a>
-						<span>or</span><a  href="{{route('register')}}"  >Signup</a></p>
+						<span>or</span><a  href="{{route('user.logout')}}"  >logout</a></p>
 					<div class="cart box_1">
 						<a href="{{route('checkout')}}">
 						<h3> <div class="total">
