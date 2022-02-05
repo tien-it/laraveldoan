@@ -5,13 +5,13 @@
 		<h1>Account</h1>
 		<div class="account_grid">
 			   <div class="col-md-6 login-right">
-				<form>
-
+				<form  class="mt-5 mb-5 login-input" action="{{ route('user.login.post') }}" method="POST">
+					@csrf
 					<span>Email Address</span>
-					<input type="text"> 
+					<input class="form-control" type="email" id ="email" name="email"  placeholder="Email" autofocus value="{{ old('email') }}"> 
 				
 					<span>Password</span>
-					<input type="text"> 
+					<input class="form-control" type="password" id = "password" name="password" class="form-control" placeholder="Mật khẩu"> 
 					<div class="word-in">
 				  		<a class="forgot" href="#">Forgot Your Password?</a>
 				 		 <input type="submit" value="Login">
@@ -27,4 +27,14 @@
 			 </div>
 	</div>
 </div>
+{{-- <form class="mt-5 mb-5 login-input" action="{{ route('user.login.post') }}" method="POST">
+	@csrf
+	<div class="form-group">
+		<input class="form-control" type="email" id ="email" name="email"  placeholder="Email" autofocus value="{{ old('email') }}">
+	</div>
+	<div class="form-group">
+		<input class="form-control" type="password" id = "password" name="password" class="form-control" placeholder="Mật khẩu">
+	</div> 
+	<button class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Đăng nhập</button>
+  </form> --}}
 @endsection
