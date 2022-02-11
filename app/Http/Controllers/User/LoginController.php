@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\giohang;
+use App\Models\sanpham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +38,7 @@ protected $redirectTo = '/user';
 
     public function index()
     {
+    
          return view('user.pages.home');
     }
 

@@ -25,7 +25,7 @@
 					<p class="log"><a href="{{route('account')}}"  >Login</a>
 						<span>or</span><a  href="{{route('user.logout')}}"  >logout</a></p>
 					<div class="cart box_1">
-						<a href="{{route('checkout')}}">
+						<a href="{{route('gio-hang')}}">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span></div>
 							<img src="images/cart.png" alt=""/></h3>

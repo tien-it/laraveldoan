@@ -23,6 +23,7 @@ class CreateChitietsanphamsTable extends Migration
             $table->string('MAUSAC');
             $table->string('CHIEUDAI');
             $table->string('CHIEURONG');
+            $table->integer('GIA');
             $table->string('BAOHANH');
             $table->timestamps();
 

@@ -33,6 +33,8 @@
 		<div class="content-top">
 			<h1>Recent Products</h1>
 			<div class="content-top1">
+
+				{{-- hiển thị sản phẩm --}}
 				<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="{{route('single')}}">
@@ -46,7 +48,8 @@
 						</div>
 					</div>
 				</div>	
-			<div class="col-md-3 col-md2">
+
+			{{-- <div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="{{route('single')}}">
 							<img class="img-responsive" src="images/pi2.png" alt="" />
@@ -146,7 +149,8 @@
 						</div>
 						
 					</div>
-				</div>	
+				</div>	 --}}
+
 			<div class="clearfix"> </div>
 			</div>	
 		</div>

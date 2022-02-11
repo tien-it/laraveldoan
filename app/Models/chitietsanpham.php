@@ -17,6 +17,7 @@ class chitietsanpham extends Model
         'MAUSAC',
         'CHIEUDAI',
         'CHIEURONG',
+        'GIA',
         'BAOHANH',
     ];
     protected $primarykey = 'id';

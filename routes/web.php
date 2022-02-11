@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\giohangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('/')->group(function () {
-    Route::get('/', function () {
-        return view('user.pages.home');
-    })->name('home');
-   
+
+     Route::get('/', function () {
+         return view('user.pages.home');
+     })->name('home');
     Route::get('/account', function () {
         return view('user.pages.account');
     })->name('account');
@@ -29,9 +30,11 @@ Route::prefix('/')->group(function () {
     Route::get('/contact', function () {
         return view('user.pages.contact');
     })->name('contact');
-    Route::get('/checkout', function () {
-        return view('user.pages.checkout');
-    })->name('checkout');
+
+    // Route::get('/checkout', function () {
+    //     return view('user.pages.checkout');
+    // })->name('checkout');
+
     Route::get('/register', function () {
         return view('user.pages.register');
     })->name('register');
@@ -41,4 +44,9 @@ Route::prefix('/')->group(function () {
     Route::get('/typo', function () {
         return view('user.pages.typo');
     })->name('typo');
+
+       /* --    giỏ hàng   ---*/
+       Route::get('/gio-hang',[giohangController::class,'show'])->name('gio-hang');
+
+
 });
