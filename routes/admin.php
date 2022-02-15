@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\SanPhamController;
+
+Route::get('/tables', [SanPhamController::class, 'tables'])->name('tables');
+Route::get('/tables/{id}', [SanPhamController::class, 'detail'])->name('tables.detail');
+Route::post('/tables', [SanPhamController::class, 'create'])->name('tables.create');
+Route::put('/tables/{id}', [SanPhamController::class, 'edit'])->name('tables.edit');
+Route::delete('/tables/{id}', [SanPhamController::class, 'delete'])->name('tables.delete');
 
 Route::group(['prefix' => '/'], function () {   
 Route::get('login', [Admin\LoginController::class, 'showLoginForm'])->name('admin.login');
@@ -32,9 +39,6 @@ Route::get('/sign-up', function () {
 Route::get('/rtl', function () {
     return view('admin.pages.rtl');
 })->name('rtl');
-Route::get('/tables', function () {
-    return view('admin.pages.tables');
-})->name('tables');
 Route::get('/virtual-reality', function () {
     return view('admin.pages.virtual-reality');
 })->name('virtual-reality');
