@@ -1,8 +1,10 @@
     <?php
 
 use App\Http\Controllers\giohangController;
+use App\Http\Controllers\CTSPController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\sanpham;
+use App\Http\Controllers\SanPhamController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 Route::prefix('/')->group(function () {
 
      Route::get('/', function () {
@@ -24,9 +25,7 @@ Route::prefix('/')->group(function () {
     Route::get('/account', function () {
         return view('user.pages.account');
     })->name('account');
-    Route::get('/product', function () {
-        return view('user.pages.products');
-    })->name('product');
+    Route::get('/product',[SanPhamController::class,'show'])->name('product');
     Route::get('/contact', function () {
         return view('user.pages.contact');
     })->name('contact');
@@ -38,9 +37,7 @@ Route::prefix('/')->group(function () {
     Route::get('/register', function () {
         return view('user.pages.register');
     })->name('register');
-    Route::get('/single', function () {
-        return view('user.pages.single');
-    })->name('single');
+    Route::get('/single/{id}', [SanPhamController::class,'find'])->name('single');
     Route::get('/typo', function () {
         return view('user.pages.typo');
     })->name('typo');
