@@ -16,7 +16,8 @@ class SanPhamController extends Controller
         }
         function index()
         {
-            return view('user.pages.products');
+            $sanpham = sanpham::all();
+            return view('user.pages.home',['sanpham'=>$sanpham]);
         }
         function find($id)
         {
