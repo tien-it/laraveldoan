@@ -6,107 +6,17 @@
     <div class="col-md-9">
         <div class="col-md-5 grid">		
             <div class="flexslider">
-                  <ul class="slides">
-                    <li data-thumb="{{asset('images/si.jpg')}}">
-                        <div class="thumb-image"> <img src="images/si.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                    </li>
-                    <li data-thumb="{{asset('images/si1.jpg')}}">
-                         <div class="thumb-image"> <img src="images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                    </li>
-                    <li data-thumb="{{asset('images/si2.jpg')}}">
-                       <div class="thumb-image"> <img src="images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-                    </li> 
-                  </ul>
+                        <img src="{{ $sanpham->HINHANH }}" data-imagezoom="true" class="img-responsive">
             </div>
         </div>	
     <div class="col-md-7 single-top-in">
                             <div class="single-para simpleCart_shelfItem">
-                                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
-                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                                <div class="star-on">
-                                    <ul>
-                                        <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
-                                        <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
-                                        <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
-                                        <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
-                                        <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
-                                    </ul>
-                                    <div class="review">
-                                        <a href="#"> 3 reviews </a>/
-                                        <a href="#">  Write a review</a>
-                                    </div>
-                                <div class="clearfix"> </div>
-                                </div>
-                                
-                                    <label  class="add-to item_price">$32.8</label>
-                                
-                                <div class="available">
-                                    <h6>Available Options :</h6>
-                                    <ul>
-                                        
-                                    <li>Size:<select>
-                                        <option>Large</option>
-                                        <option>Medium</option>
-                                        <option>small</option>
-                                        <option>Large</option>
-                                        <option>small</option>
-                                    </select></li>
-                                    <li>Cost:
-                                            <select>
-                                            <option>U.S.Dollar</option>
-                                            <option>Euro</option>
-                                        </select></li>
-                                </ul>
-                            </div>
-                                    <a href="#" class="cart item_add">More details</a>
+                                <h1>Description</h1>
+                                <p>{{ $sanpham->MOTA }}</p>
+                                    <label  class="add-to item_price">$300</label>
+                                    <a href="#" class="cart item_add">Add Cart</a>
                             </div>
                         </div>
-                <div class="clearfix"> </div>
-                <div class="content-top1">
-                    <div class="col-md-4 col-md3">
-                        <div class="col-md1 simpleCart_shelfItem">
-                            <a href="single.html">
-                                <img class="img-responsive" src="images/pi6.png" alt="" />
-                            </a>
-                            <h3><a href="single.html">Jeans</a></h3>
-                            <div class="price">
-                                    <h5 class="item_price">$300</h5>
-                                    <a href="#" class="item_add">Add To Cart</a>
-                                    <div class="clearfix"> </div>
-                            </div>
-                        </div>
-                    </div>	
-                <div class="col-md-4 col-md3">
-                        <div class="col-md1 simpleCart_shelfItem">
-                            <a href="single.html">
-                                <img class="img-responsive" src="images/pi7.png" alt="" />
-                            </a>
-                            <h3><a href="single.html">Tops</a></h3>
-                            <div class="price">
-                                    <h5 class="item_price">$300</h5>
-                                    <a href="#" class="item_add">Add To Cart</a>
-                                    <div class="clearfix"> </div>
-                            </div>
-                            
-                        </div>
-                    </div>	
-                <div class="col-md-4 col-md3">
-                        <div class="col-md1 simpleCart_shelfItem">
-                            <a href="single.html">
-                                <img class="img-responsive" src="images/pi.png" alt="" />
-                            </a>
-                            <h3><a href="single.html">Tops</a></h3>
-                            <div class="price">
-                                    <h5 class="item_price">$300</h5>
-                                    <a href="#" class="item_add">Add To Cart</a>
-                                    <div class="clearfix"> </div>
-                            </div>
-                            
-                        </div>
-                    </div>	
-                
-                <div class="clearfix"> </div>
-                </div>		
     </div>
     <!----->
     <div class="col-md-3 product-bottom">
