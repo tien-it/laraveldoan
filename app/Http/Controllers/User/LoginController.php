@@ -54,6 +54,8 @@ protected $redirectTo = '/user';
             'email' => $request->email,
             'password' => $request->password
         ], $request->get('remember'))) {
+            //lưu id tài khoản để định danh tài khoản đăng nhập
+            session()->set('id_taikhoan',);
             return redirect()->intended(route('user.index'));
         }
          return back()->withInput($request->only('email','remember'));

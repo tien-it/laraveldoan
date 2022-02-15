@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use App\Http\Controllers\giohangController;
 use Illuminate\Support\Facades\Route;
@@ -45,8 +45,7 @@ Route::prefix('/')->group(function () {
         return view('user.pages.typo');
     })->name('typo');
 
-       /* --    giỏ hàng   ---*/
-       Route::get('/gio-hang',[giohangController::class,'show'])->name('gio-hang');
-
-
+    /* -----------              giỏ hàng           ------------*/
+    Route::get('/gio-hang',[giohangController::class,'show'])
+    ->name('gio-hang');
 });

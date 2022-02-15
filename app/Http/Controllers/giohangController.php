@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\chitiethoadon;
+use App\Models\chitietsanpham;
 use App\Models\giohang;
+use App\Models\taikhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,13 +28,26 @@ class giohangController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * thêm giỏ hàng
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $taikhoan_id =  session() -> get('id_taikhoan');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
+        $chitietsanpham_id = $request -> id_chitietsanpham; /* lấy id chi tiết sản phẩm từ request */
+        $soluong = $request -> soluong; /* lấy  số lượng từ request */
+        $sanpham_info = chitietsanpham::where('id',$chitietsanpham_id)->first(); /* lấy chi tiết sản phẩm để lọc thông tin*/
+        if($taikhoan_id) {
+            $data['MAKHACHHANG'] = $taikhoan_id;
+            $data['MACHITETSANPHAM'] = $sanpham_info->MACHITIETSANPHAM;
+            $data['SOLUONG'] = $soluong;
+            $data['TRANGTHAI'] = 1;
+        } else {
+            return \redirect() -> route('account');
+        }
+        giohang::add($data);
+        return \redirect() -> route('client.cart');
     }
 
     /**
@@ -65,20 +81,8 @@ class giohangController extends Controller
         }
         return view('user.pages.checkout',['giohang'=>$giohang]);
     }
-
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * thay đổi số lượng 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -90,13 +94,37 @@ class giohangController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * xóa toàn bộ giỏ hàng
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
+    {
+        $taikhoan_id =  session() -> get('id_taikhoan');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
+        giohang::destroy($taikhoan_id);
+    }
+     /**
+     * xóa sản phẩm trong giỏ hàng
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function remove($chitietsanpham_id)
+    {
+        $taikhoan_id =  session() ->get('id_taikhoan');
+        giohang::deleted($chitietsanpham_id ,$taikhoan_id);
+    }
+    /**
+     * thanh toán
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function thanhtoan($id)
     {
         //
     }
+     
+
 }
