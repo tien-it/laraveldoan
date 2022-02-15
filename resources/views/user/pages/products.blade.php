@@ -11,7 +11,7 @@
 						<a href="{{route('single',$item->id)}}" method="GET">
 							<img id="" class="img-responsive" src="{{ $item->HINHANH }}" alt="" />
 						</a>
-						<h3><a href="{{route('single',$item->id)}}"  method="GET">Tops</a></h3>
+						<h3><a href="{{route('single',$item->id)}}"  method="GET">{{ $item->TENSP }}</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
 								<a href="#" class="item_add">Add To Cart</a>
