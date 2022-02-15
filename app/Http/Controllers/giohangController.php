@@ -34,7 +34,7 @@ class giohangController extends Controller
      */
     public function create(Request $request)
     {
-        $taikhoan_id =  session() -> get('id_taikhoan');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
+        $taikhoan_id =  session() -> get('id');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
         $chitietsanpham_id = $request -> id_chitietsanpham; /* lấy id chi tiết sản phẩm từ request */
         $soluong = $request -> soluong; /* lấy  số lượng từ request */
         $sanpham_info = chitietsanpham::where('id',$chitietsanpham_id)->first(); /* lấy chi tiết sản phẩm để lọc thông tin*/
@@ -70,12 +70,11 @@ class giohangController extends Controller
     
     /* HI */
     public function show()
-    {
+    {   $taikhoan_id =  session() -> get('id',1);
         $giohang = DB::table('giohangs')->join('chitietsanphams','chitietsanphams.id','=','giohangs.MACHITIETSANPHAM')
         ->join('sanphams','sanphams.id','=','chitietsanphams.MASANPHAM')
-        ->where('giohangs.MAKHACHHANG','=',1)
+        ->where('giohangs.MAKHACHHANG','=',$taikhoan_id)
         ->get(); 
-
         if(empty($giohang)){
           return view('user.pages.checkout',['giohang'=>null]);
         }

@@ -50,6 +50,7 @@ class LoginController extends Controller
         ], $request->get('remember'))) {
         return redirect()->intended(route('admin.index'));
         }
+        //$request->session()->put('id',$request->id);
     return back()->withInput($request->only('email', 'remember'));
     }
     public function logout(Request $request)
