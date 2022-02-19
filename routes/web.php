@@ -35,6 +35,8 @@ Route::prefix('/')->group(function () {
         return view('user.pages.register');
     })->name('register');
     Route::get('/single/{id}', [SanPhamController::class,'find'])->name('single');
+
+   
     Route::get('/typo', function () {
         return view('user.pages.typo');
     })->name('typo');
@@ -42,4 +44,6 @@ Route::prefix('/')->group(function () {
     /* -----------              giỏ hàng           ------------*/
     Route::get('/gio-hang',[giohangController::class,'show'])
     ->name('gio-hang');
+    Route::get('/add-cart/{id}', [giohangController::class,'create'])->name('add-cart');
+    
 });

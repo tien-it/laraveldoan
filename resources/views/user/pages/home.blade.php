@@ -37,12 +37,12 @@
 				<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="{{route('single',$item->id)}}">
-							<img class="img-responsive" src="{{ $item->HINHANH }}" alt="" />
+							<img class="img-responsive" src="images/{{ $item->HINHANH }}" alt="" />
 						</a>
 						<h3><a href="{{route('single',$item->id)}}">{{ $item->TENSP }}</a></h3>
 						<div class="price">
 								<h5 class="item_price">$300</h5>
-								<a href="#" class="item_add">Add To Cart</a>
+								<a href="{{route('add-cart',$item->id)}}" class="item_add">Add To Cart</a>
 								<div class="clearfix"> </div>
 						</div>
 					</div>

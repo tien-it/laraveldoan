@@ -25,7 +25,7 @@
 			<td class="check"><input type="text" value="{{$giohang_item	->SOLUONG}}" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>		
 			<td>{{$giohang_item->MAUSAC}}</td>
 			<td>FREE SHIPPING</td>
-			<td>${{$giohang_item->GIA}}</td>
+			<td>$100</td>
 		  </tr>
 		  @endforeach
 		  {{-- <tr>

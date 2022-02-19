@@ -32,22 +32,24 @@ class giohangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create( int $id)
     {
-        $taikhoan_id =  session() -> get('id');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
-        $chitietsanpham_id = $request -> id_chitietsanpham; /* lấy id chi tiết sản phẩm từ request */
-        $soluong = $request -> soluong; /* lấy  số lượng từ request */
-        $sanpham_info = chitietsanpham::where('id',$chitietsanpham_id)->first(); /* lấy chi tiết sản phẩm để lọc thông tin*/
-        if($taikhoan_id) {
-            $data['MAKHACHHANG'] = $taikhoan_id;
-            $data['MACHITETSANPHAM'] = $sanpham_info->MACHITIETSANPHAM;
+        $taikhoan_id =  session() -> get('id_account');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
+        $soluong = 1; /* lấy  số lượng từ request */
+        $sanpham_info = chitietsanpham::where('MASANPHAM',$id)->first(); 
+        echo (' Account ID'+$taikhoan_id);
+        echo ('Thông tin sản phẩm'+$sanpham_info);
+        if(  $taikhoan_id !=null && $sanpham_info !=null )  {
+            $data['MAKHACHHANG'] = 1;
+            $data['MACHITETSANPHAM'] = 1;
             $data['SOLUONG'] = $soluong;
             $data['TRANGTHAI'] = 1;
+            
         } else {
             return \redirect() -> route('account');
         }
         giohang::add($data);
-        return \redirect() -> route('client.cart');
+        return \redirect() -> route('home');
     }
 
     /**

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models;
+use App\Models\loaisanpham;
 class LoaiSanPhamController extends Controller
 {
     function LayDanhSach()
