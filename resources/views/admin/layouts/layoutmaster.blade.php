@@ -9,7 +9,6 @@
        Argon Dashboard 2  by Creative Tim
       
     </title>
- 
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     
@@ -23,7 +22,7 @@
     
     
     <!-- CSS Files -->
-
+    
     <link id="pagestyle" href="{{asset('assets/css/argon-dashboard.css?v=2.0.0')}}" rel="stylesheet" />
 </head>
 <body>

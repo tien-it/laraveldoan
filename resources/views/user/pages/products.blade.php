@@ -9,7 +9,7 @@
 				<div class="col-md-4 col-md3">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="{{route('single',$item->id)}}" method="GET">
-							<img id="" class="img-responsive" src="~/images/{{ $item->HINHANH }}" alt="" />
+							<img id="" class="img-responsive" src="{{ $item->HINHANH }}" alt="" />
 						</a>
 						<h3><a href="{{route('single',$item->id)}}"  method="GET">{{ $item->TENSP }}</a></h3>
 						<div class="price">
@@ -18,7 +18,7 @@
 								<div class="clearfix"> </div>
 						</div>
 					</div>
-				</div>	
+				</div>
 				@endforeach
 			</div>	
 		</div>

@@ -3,78 +3,56 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models;
+use App\Models\loaisanpham;
 class LoaiSanPhamController extends Controller
 {
-    function LayDanhSach()
+    function index()
     {
         $loaisanpham = loaisanpham::all();
-        return json_encode([
-            'Success'=>true,
-            'Data' =>$loaisanpham,
-        ]);
+        return view('admin.pages.producttype',['loaisanpham'=>$loaisanpham]);
     }
-    function find($id)
+    function detail($id)
     {
         $loaisanpham = loaisanpham::find($id);
         if(empty($loaisanpham)){
-            return json_encode([
-                'Success'=>false,
-                'Message' =>'Không Tìm Thấy Loại Sản Phẩm Có id Là : '.$id,
-            ]);
+                return view('admin.pages.home');
         }
-        return json_encode([
-            'Success'=>true,
-            'Data' =>$loaisanpham,
-        ]);
+        return view('admin.pages.producttypes.detail',['loaisanpham'=>$loaisanpham]);
+    }
+    function prdtcreate()
+    {
+        return view('admin.pages.producttypes.create');
     }
     function create(Request $request)
     {
-        $ProductTypes = new  loaisanpham();
-        $ProductTypes->TENLOAISP=$request->PRODUCT_TYPE_ID;
-        $ProductTypes->TRANGTHAI=$request->PRODUCT_TYPE_NAME;
-        $ProductTypes->save();
-        if(empty($ProductTypes)){
-            return json_encode([
-                'Success'=>false,
-                'Message' =>'Error',
-            ]);
+        $loaisanpham = new  loaisanpham();
+        $loaisanpham->id=$request->id;
+        $loaisanpham->TENLOAISP=$request->TENLOAISP;
+        $loaisanpham->TRANGTHAI=$request->TRANGTHAI;
+        $loaisanpham->save();
+        if(empty($loaisanpham)){
+            return view('admin.pages.home');
         }
-        return json_encode([
-            'Success'=>true,
-            'Data' =>'Done',
-        ]);
+        return view('admin.pages.producttype',['loaisanpham'=>loaisanpham::all()]);
     }
     function edit(Request $request,$id)
     {
         $ProductTypes = loaisanpham::find($id);
-        $ProductTypes->TENLOAISP=$request->PRODUCT_TYPE_ID;
-        $ProductTypes->TRANGTHAI=$request->PRODUCT_TYPE_NAME;
+        $ProductTypes->TENLOAISP=$request->TENLOAISP;
+        $ProductTypes->TRANGTHAI=$request->TRANGTHAI;
         $ProductTypes->save();
-        if(empty($ProductTypes)){
-            return json_encode([
-                'Success'=>false,
-                'Message' =>'Error',
-            ]);
+        if(empty($loaisanpham)){
+            return view('admin.pages.home');
         }
-        return json_encode([
-            'Success'=>true,
-            'Data' =>'Done',
-        ]);
+        return view('admin.pages.producttype',['loaisanpham'=>loaisanpham::all()]);
     }
     function delete($id)
     {
-        $ProductTypes =  loaisanpham::find($id);
-        $ProductTypes ->delete();
-        if(empty($ProductTypes)){
-            return json_encode([
-                'Success'=>false,
-                'Message' =>'Error',
-            ]);
+        $loaisanpham =  loaisanpham::findOrFail($id);
+        $loaisanpham ->delete();
+        if(empty($loaisanpham)){
+            return view('admin.pages.home');
         }
-        return json_encode([
-            'Success'=>true,
-            'Data' =>'Done',
-        ]);
+        return view('admin.pages.producttype',['loaisanpham'=>loaisanpham::all()]);
     }
 }

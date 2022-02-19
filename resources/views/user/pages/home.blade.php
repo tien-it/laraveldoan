@@ -33,7 +33,7 @@
 		<div class="content-top">
 			<h1>Recent Products</h1>
 			<div class="content-top1">
-				@foreach ( $sanpham as $item)
+				@foreach ( $sanpham as $item )
 				<div class="col-md-3 col-md2">
 					<div class="col-md1 simpleCart_shelfItem">
 						<a href="{{route('single',$item->id)}}">

@@ -3,24 +3,33 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\SanPhamController;
-
+use App\Http\Controllers\CTSPController;
+use App\Http\Controllers\LoaiSanPhamController;
+//Product 
 Route::get('/tables', [SanPhamController::class, 'tables'])->name('tables');
-Route::get('/tables/{id}', [SanPhamController::class, 'detail'])->name('tables.detail');
-Route::post('/tables', [SanPhamController::class, 'create'])->name('tables.create');
-Route::put('/tables/{id}', [SanPhamController::class, 'edit'])->name('tables.edit');
-Route::delete('/tables/{id}', [SanPhamController::class, 'delete'])->name('tables.delete');
-
+Route::get('/tables/{id}', [CTSPController::class, 'index'])->name('tables.detail');
+Route::post('/tables/create', [SanPhamController::class, 'create'])->name('tables.create');
+Route::get('/tables/edit/{id}', [SanPhamController::class, 'edit'])->name('tables.edit');
+Route::put('/tables/update/{id}', [SanPhamController::class, 'update'])->name('tables.update');
+Route::get('/tables/delete/{id}', [SanPhamController::class, 'delete'])->name('tables.delete');
+Route::get('/prdcreate', [SanPhamController::class, 'prdcreate'])->name('prdcreate');
+//product types
+Route::get('/producttype', [LoaiSanPhamController::class, 'index'])->name('producttype');
+Route::get('/producttype/{id}', [LoaiSanPhamController::class, 'detail'])->name('producttype.detail');
+Route::post('/producttype/create', [LoaiSanPhamController::class, 'create'])->name('producttype.create');
+Route::put('/tables/update/{id}', [LoaiSanPhamController::class, 'update'])->name('producttype.edit');
+Route::get('/producttype/delete/{id}', [LoaiSanPhamController::class, 'delete'])->name('producttype.delete');
+Route::get('/prdtcreate', [LoaiSanPhamController::class, 'prdtcreate'])->name('prdtcreate');
+//login
 Route::group(['prefix' => '/'], function () {   
 Route::get('login', [Admin\LoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('login', [Admin\LoginController::class, 'login'])->name('admin.login.post');
 Route::get('logout', [Admin\LoginController::class, 'logout'])->name('admin.logout');
 Route::get('index', [Admin\LoginController::class, 'index'])->name('admin.index');
 Route::group(['middleware' => ['auth:admin']], function () {
-    Route::get('/', function () {
+    Route::get('/home', function () {
         return view('admin.pages.home');
-    })->name('home');
-
-
+    })->name('admin.home');
 Route::get('/billing', function () {
     return view('admin.pages.billing');
 })->name('billing');

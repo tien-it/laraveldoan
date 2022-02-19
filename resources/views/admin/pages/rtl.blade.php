@@ -17,7 +17,7 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text me-1">لوحة القيادة</span>
+            <span class="nav-link-text me-1"> dashboard</span>
           </a>
         </li>
         <li class="nav-item">
@@ -25,7 +25,17 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text me-1">الجداول</span>
+            <span class="nav-link-text me-1">Product</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('producttype')}}">
+            
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              </div>
+            
+            <span class="nav-link-text ms-1">Product type</span>
           </a>
         </li>
         <li class="nav-item">
@@ -33,7 +43,7 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text me-1">الفواتير</span>
+            <span class="nav-link-text me-1">billing</span>
           </a>
         </li>
         <li class="nav-item">
@@ -41,7 +51,7 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-app text-info text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text me-1">الواقع الافتراضي</span>
+            <span class="nav-link-text me-1"> virtual reality</span>
           </a>
         </li>
         <li class="nav-item">
@@ -60,7 +70,7 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text me-1">حساب تعريفي</span>
+            <span class="nav-link-text me-1">profile </span>
           </a>
         </li>
         <li class="nav-item">
@@ -68,7 +78,7 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text me-1">تسجيل الدخول</span>
+            <span class="nav-link-text me-1"> sign - in</span>
           </a>
         </li>
         <li class="nav-item">
