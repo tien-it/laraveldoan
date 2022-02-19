@@ -4,19 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\sanpham;
+use App\Models\chitietsanpham;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class SanPhamController extends Controller
-{
-    function show()
+{   
+        function tables()
+        {
+            $sanpham = sanpham::all();
+            return view('admin.pages.tables',['sanpham'=>$sanpham]);
+        }   
+        function show()
         {
             $sanpham = sanpham::all();
             return view('user.pages.products',['sanpham'=>$sanpham]);
         }
         function index()
         {
-            $sanpham = sanpham::all();
+            $sanpham = DB::table('sanphams')->where('TRANGTHAI',1)->skip(0)->take(8)->get();
             return view('user.pages.home',['sanpham'=>$sanpham]);
         }
         function find($id)
@@ -27,67 +34,54 @@ class SanPhamController extends Controller
             }
             return view('user.pages.single',['sanpham'=>$sanpham]);
         }
-        function detail($id)
+        function prdcreate()
         {
-        $sanpham = sanpham::find($id);
-            if(empty($sanpham)){
-                return view('user.pages.home');
-            }
-            return view('user.pages.single',['sanpham'=>$sanpham]);
+            return view('admin.pages.Products.create');
         }
+        
     function create(Request $request)
     {
-        $Product = new  sanpham();
-        $Product->MALOAISP=$request->MALOAISP;
-        $Product->TENSP=$request->TENSP;
-        $Product->TRANGTHAI=$request->TRANGTHAI;
-        $Product->HINHANH=$request->HINHANH;
-        $Product->MOTA=$request->MOTA;
-        $Product->save();
-        if(empty($Product)){
-            return json_encode([
-                'Success'=>false,
-                'Message' =>'Error',
-            ]);
+        $sanpham = new  sanpham();
+        $sanpham->MALOAISP=$request->MALOAISP;
+        $sanpham->TENSP=$request->TENSP;
+        $sanpham->TRANGTHAI=$request->TRANGTHAI;
+        $sanpham->HINHANH=$request->HINHANH;
+        $sanpham->MOTA=$request->MOTA;
+        $sanpham->save();
+        if(empty($sanpham)){
+            return view('admin.pages.home');
         }
-        return json_encode([
-            'Success'=>true,
-            'Data' =>'Done',
-        ]);
+        return view('admin.pages.tables',['sanpham'=>sanpham::all()]);
     }
-    function edit(Request $request,$id)
+    function edit($id){
+        $sanpham = DB::table('sanphams')->find($id);
+            if(empty($sanpham)){
+                return view('admin.pages.table');
+            }
+            return view('admin.pages.Products.edit',['sanpham'=>$sanpham]);
+        return view('users.edit', compact('user'));
+    }
+    function update(Request $request,$id)
     {
-        $Product = sanpham::find($id);
-        $Product->MALOAISP=$request->MALOAISP;
-        $Product->TENSP=$request->TENSP;
-        $Product->TRANGTHAI=$request->TRANGTHAI;
-        $Product->HINHANH=$request->HINHANH;
-        $Product->MOTA=$request->MOTA;
-        $Product->save();
-        if(empty($Product)){
-            return json_encode([
-                'Success'=>false,
-                'Message' =>'Error',
-            ]);
+        $sanpham = sanpham::find($id);
+        $sanpham->MALOAISP=$request->MALOAISP;
+        $sanpham->TENSP=$request->TENSP;
+        $sanpham->TRANGTHAI=$request->TRANGTHAI;
+        $sanpham->HINHANH=$request->HINHANH;
+        $sanpham->MOTA=$request->MOTA;
+        $sanpham->save();
+        if(empty($sanpham)){
+            return view('admin.pages.home');
         }
-        return json_encode([
-            'Success'=>true,
-            'Data' =>'Done',
-        ]);
+        return view('admin.pages.tables',['sanpham'=>sanpham::all()]);
     }
     function delete($id)
     {
-        $Product =  sanpham::find($id);
-        $Product ->delete();
-        if(empty($Product)){
-            return json_encode([
-                'Success'=>false,
-                'Message' =>'Error',
-            ]);
+        $sanpham =  sanpham::findOrFail($id);
+        $sanpham ->delete();
+        if(empty($sanpham)){
+            return view('admin.pages.home');
         }
-        return json_encode([
-            'Success'=>true,
-            'Data' =>'Done',
-        ]);
+        return view('admin.pages.tables',['sanpham'=>sanpham::all()]);
     }
 }

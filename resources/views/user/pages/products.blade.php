@@ -18,7 +18,7 @@
 								<div class="clearfix"> </div>
 						</div>
 					</div>
-				</div>	
+				</div>
 				@endforeach
 			</div>	
 		</div>
