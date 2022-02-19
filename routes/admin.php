@@ -10,14 +10,16 @@ Route::get('/tables', [SanPhamController::class, 'tables'])->name('tables');
 Route::get('/tables/{id}', [CTSPController::class, 'index'])->name('tables.detail');
 Route::post('/tables/create', [SanPhamController::class, 'create'])->name('tables.create');
 Route::get('/tables/edit/{id}', [SanPhamController::class, 'edit'])->name('tables.edit');
-Route::put('/tables/update/{id}', [SanPhamController::class, 'update'])->name('tables.update');
+Route::post('/tables/update/{id}', [SanPhamController::class, 'update'])->name('tables.update');
 Route::get('/tables/delete/{id}', [SanPhamController::class, 'delete'])->name('tables.delete');
 Route::get('/prdcreate', [SanPhamController::class, 'prdcreate'])->name('prdcreate');
+Route::get('/prdD/{id}', [SanPhamController::class, 'prdD'])->name('prdD');
 //product types
 Route::get('/producttype', [LoaiSanPhamController::class, 'index'])->name('producttype');
 Route::get('/producttype/{id}', [LoaiSanPhamController::class, 'detail'])->name('producttype.detail');
 Route::post('/producttype/create', [LoaiSanPhamController::class, 'create'])->name('producttype.create');
-Route::put('/tables/update/{id}', [LoaiSanPhamController::class, 'update'])->name('producttype.edit');
+Route::get('/producttype/edit/{id}', [LoaiSanPhamController::class, 'edit'])->name('producttype.edit');
+Route::post('/producttype/update/{id}', [LoaiSanPhamController::class, 'update'])->name('producttype.update');
 Route::get('/producttype/delete/{id}', [LoaiSanPhamController::class, 'delete'])->name('producttype.delete');
 Route::get('/prdtcreate', [LoaiSanPhamController::class, 'prdtcreate'])->name('prdtcreate');
 //login

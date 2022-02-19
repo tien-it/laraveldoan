@@ -25,7 +25,17 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Tables</span>
+            <span class="nav-link-text ms-1">Product</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('producttype')}}">
+            
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              </div>
+            
+            <span class="nav-link-text ms-1">Product type</span>
           </a>
         </li>
         <li class="nav-item">
@@ -226,22 +236,22 @@
                     <form action="{{ route('tables.create') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="Hình Ảnh" >
+                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="IMAGE" >
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="Mã Loại Sản Phẩm">
+                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="PRODUCT TYPE CODE">
                         </div> 
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="Tên Sản Phẩm">
+                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="PRODUCT NAME">
                         </div> 
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="Mô Tả">
+                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="DESCRIPTION">
                         </div> 
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="Trạng Thái">
+                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="STATUS">
                         </div> 
-                            <button class="btn btn-primary">Save</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">Back</a>
+                            <button class="btn btn-primary">SAVE</button>
+                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
                     </form>
                 </div>
             </div>

@@ -233,9 +233,9 @@
               <table class="table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã Loại Sản Phẩm</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Tên Loại Sản Phẩm</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Trạng Thái</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PRODUCT TYPE CODE</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> PRODUCT TYPE NAME</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
                     <th></th>
                   </tr>
                 </thead>

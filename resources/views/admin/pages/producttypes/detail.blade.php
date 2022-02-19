@@ -25,7 +25,17 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Tables</span>
+            <span class="nav-link-text ms-1">Product</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('producttype')}}">
+            
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              </div>
+            
+            <span class="nav-link-text ms-1">Product type</span>
           </a>
         </li>
         <li class="nav-item">
@@ -221,17 +231,17 @@
                 
             <h1>Details</h1>
             <div>
-            <h4>Product</h4>
+            <h4>Product Type</h4>
             <hr />
             <dl class="row">
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tên Loại Sản Phẩm</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PRODUCT TYPE NAME</th>
                 </dt>
                 <dd class = "col-sm-10">
                     <p class="text-sm font-weight-bold mb-0">{{ $loaisanpham->TENLOAISP }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Trạng Thái</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
                 </dt>
                 <dd class = "col-sm-10">
                     <p class="text-sm font-weight-bold mb-0">{{ $loaisanpham->TRANGTHAI }}</p>

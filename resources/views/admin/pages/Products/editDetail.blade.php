@@ -228,71 +228,69 @@
 
           <div class="card sm-4">
             <div class="row container ">
-                
-            <h1>Details</h1>
-            <div>
-            <h4>Product</h4>
-            <hr />
-            <dl class="row">
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PRODUCT CODE</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->MASANPHAM }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TRADEMARK</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->THUONGHIEU }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">PRODUCER</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->NOISANXUAT }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">MATERIAL</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->CHATLIEU }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STYLE</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->PHONGCACH }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">COLOR</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->MAUSAC }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">LENGTH</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->CHIEUDAI }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">WIDTH</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->CHIEURONG }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">INSURANCE</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->BAOHANH }}</p>
-                </dd>
-                <a href="{{ route('prdD',$sanpham->id) }}" class="btn btn-primary col-sm-1" role="button">Edit</a>
-                &nbsp
-                <a href="{{ route('tables') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
-            </dl>
-            </div>
+                <h1>EDIT PRODUCT</h1>
+                <hr />
+                <div class="col-md-5">
+                    <form action="{{ route('tables.update',$sanpham->id)}}" method="POST">
+                      @csrf
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã Sản Phẩm</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="MASANPHAM" name="MASANPHAM" value="{{ $sanpham->MASANPHAM }}"  placeholder="Mã Sản Phẩm" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Thương Hiệu</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="THUONGHIEU" name="THUONGHIEU" value="{{ $sanpham->THUONGHIEU }}"  placeholder="Thương Hiệu" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nơi Sản Xuất</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="NOISANXUAT" name="NOISANXUAT" value="{{ $sanpham->NOISANXUAT }}"  placeholder="Nơi Sản Xuất" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Chất Liệu</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="CHATLIEU" name="CHATLIEU" value="{{ $sanpham->CHATLIEU }}"  placeholder="Chất Liệu" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phong Cách</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="PHONGCACH" name="PHONGCACH" value="{{ $sanpham->PHONGCACH }}"  placeholder="Phong Cách" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Màu Sắc</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="MAUSAC" name="MAUSAC" value="{{ $sanpham->MAUSAC }}"  placeholder="Màu Sắc" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">CHIEUDAI</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="CHIEUDAI" name="CHIEUDAI" value="{{ $sanpham->CHIEUDAI }}"  placeholder="Chiều Dài" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Chiều Rộng</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="CHIEURONG" name="CHIEURONG" value="{{ $sanpham->CHIEURONG }}"  placeholder="Chiều Rộng" >
+                    </dd>
+                    <dt class = "col-sm-4">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Bảo Hành</th>
+                    </dt>
+                    <dd class = "col-sm-8">
+                        <input class="form-control" type="text" id ="BAOHANH" name="BAOHANH" value="{{ $sanpham->BAOHANH }}"  placeholder="Bảo Hành" >
+                    </dd>
+                            <button class="btn btn-primary">Lưu</button>
+                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">Trở Về</a>
+                    </form>
+                </div>
             </div>
               </div>
             </div>
@@ -315,8 +313,8 @@
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                </li>
+                    <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                  </li>
                 <li class="nav-item">
                   <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
                 </li>

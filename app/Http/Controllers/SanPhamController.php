@@ -53,13 +53,19 @@ class SanPhamController extends Controller
         }
         return view('admin.pages.tables',['sanpham'=>sanpham::all()]);
     }
+    function prdD($id){
+        $sanpham = DB::table('chitietsanphams')->find($id);
+            if(empty($sanpham)){
+                return view('admin.pages.table');
+            }
+            return view('admin.pages.Products.editDetail',['sanpham'=>$sanpham]);
+    }
     function edit($id){
         $sanpham = DB::table('sanphams')->find($id);
             if(empty($sanpham)){
                 return view('admin.pages.table');
             }
             return view('admin.pages.Products.edit',['sanpham'=>$sanpham]);
-        return view('users.edit', compact('user'));
     }
     function update(Request $request,$id)
     {
