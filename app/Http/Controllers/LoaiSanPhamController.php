@@ -35,15 +35,17 @@ class LoaiSanPhamController extends Controller
         }
         return view('admin.pages.producttype',['loaisanpham'=>loaisanpham::all()]);
     }
-    function edit(Request $request,$id)
+    function edit($id)
+    {
+        $loaisanpham = loaisanpham::find($id);  
+        return view('admin.pages.producttypes.edit',['loaisanpham'=>$loaisanpham]);
+    }
+    function update(Request $request,$id)
     {
         $ProductTypes = loaisanpham::find($id);
         $ProductTypes->TENLOAISP=$request->TENLOAISP;
         $ProductTypes->TRANGTHAI=$request->TRANGTHAI;
         $ProductTypes->save();
-        if(empty($loaisanpham)){
-            return view('admin.pages.home');
-        }
         return view('admin.pages.producttype',['loaisanpham'=>loaisanpham::all()]);
     }
     function delete($id)
