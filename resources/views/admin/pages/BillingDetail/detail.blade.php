@@ -21,7 +21,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
+          <a class="nav-link" href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
@@ -39,7 +39,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('billing')}}">
+          <a class="nav-link active" href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
             </div>
@@ -236,32 +236,53 @@
 
           <div class="card sm-4">
             <div class="row container ">
-                <h1>Edit</h1>
+                
+            <h1>Details</h1>
+            <div>
+            <h4>Product Type</h4>
+            <hr />   
             
-                <h4>Product</h4>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.update',$sanpham->id)}}" method="POST">
-                      @csrf
-                        <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH" value="{{ $sanpham->HINHANH }}"  placeholder="IMAGE" >
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP" value="{{ $sanpham->MALOAISP }}" placeholder="PRODUCT TYPE CODE">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP" value="{{ $sanpham->TENSP }}" placeholder="PRODUCT NAME">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" value="{{ $sanpham->MOTA }}" placeholder="DESCRIPTION">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI" value="{{ $sanpham->TRANGTHAI }}"  placeholder="STATUS">
-                        </div> 
-                            <button class="btn btn-primary">SAVE</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
-                    </form>
-                </div>
+            <dl class="row">
+                  <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Invoice Detail Code</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->MACHITIETHOADON }}</p>
+                </dd>
+                 <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Invoice Code</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->MAHOADON }}</p>
+                </dd>
+
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Quantity</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->SOLUONG }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->DONGIA }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->THANHTIEN }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->TRANGTHAI }}</p>
+                </dd>
+                <a href="{{ route('dbilling') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
+            </dl>
+            </div>
             </div>
               </div>
             </div>

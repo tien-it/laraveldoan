@@ -2,9 +2,27 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\BillingDetailController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\CTSPController;
 use App\Http\Controllers\LoaiSanPhamController;
+//Billing
+Route::get('/billing', [BillingController::class, 'index'])->name('billing');
+Route::get('/billing/{id}', [BillingController::class, 'detail'])->name('billing.detail');
+Route::post('/billing/create', [BillingController::class, 'create'])->name('billing.create');
+Route::get('/billing/edit/{id}', [BillingController::class, 'edit'])->name('billing.edit');
+Route::post('/billing/update/{id}', [BillingController::class, 'update'])->name('billing.update');
+Route::get('/billing/delete/{id}', [BillingController::class, 'delete'])->name('billing.delete');
+Route::get('/billcreate', [SanPhamController::class, 'billcreate'])->name('billcreate');
+//Billing Detail
+Route::get('/detailbilling', [BillingDetailController::class, 'index'])->name('detailbilling');
+Route::get('/dbilling/{id}', [BillingDetailController::class, 'detail'])->name('dbilling.detail');
+Route::post('/dbilling/create', [BillingDetailController::class, 'create'])->name('dbilling.create');
+Route::get('/dbilling/edit/{id}', [BillingDetailController::class, 'edit'])->name('dbilling.edit');
+Route::post('/dbilling/update/{id}', [BillingDetailController::class, 'update'])->name('dbilling.update');
+Route::get('/dbilling/delete/{id}', [BillingDetailController::class, 'delete'])->name('dbilling.delete');
+Route::get('/dbilling', [BillingDetailController::class, 'billdcreate'])->name('billdcreate');
 //Product 
 Route::get('/tables', [SanPhamController::class, 'tables'])->name('tables');
 Route::get('/tables/{id}', [CTSPController::class, 'index'])->name('tables.detail');
@@ -29,12 +47,9 @@ Route::post('login', [Admin\LoginController::class, 'login'])->name('admin.login
 Route::get('logout', [Admin\LoginController::class, 'logout'])->name('admin.logout');
 Route::get('index', [Admin\LoginController::class, 'index'])->name('admin.index');
 Route::group(['middleware' => ['auth:admin']], function () {
-    Route::get('/home', function () {
+    Route::get('/', function () {
         return view('admin.pages.home');
     })->name('admin.home');
-Route::get('/billing', function () {
-    return view('admin.pages.billing');
-})->name('billing');
 Route::get('/dashboard', function () {
     return view('admin.pages.dashboard');
 })->name('dashboard');

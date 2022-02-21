@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('detailbilling')}}">
+          <a class="nav-link active" href="{{route('detailbilling')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
             </div>
@@ -230,44 +230,65 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-sm-12">
-
-          <div class="card sm-4">
-            <div class="row container ">
-                <h1>Edit</h1>
-            
-                <h4>Product</h4>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.update',$sanpham->id)}}" method="POST">
-                      @csrf
-                        <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH" value="{{ $sanpham->HINHANH }}"  placeholder="IMAGE" >
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP" value="{{ $sanpham->MALOAISP }}" placeholder="PRODUCT TYPE CODE">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP" value="{{ $sanpham->TENSP }}" placeholder="PRODUCT NAME">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" value="{{ $sanpham->MOTA }}" placeholder="DESCRIPTION">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI" value="{{ $sanpham->TRANGTHAI }}"  placeholder="STATUS">
-                        </div> 
-                            <button class="btn btn-primary">SAVE</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
-                    </form>
-                </div>
-            </div>
-              </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>Invoice Detail Table</h6>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center justify-content-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">MAHOADON</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">MACHITIETHOADON</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">SOLUONG</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">DONGIA</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">THANHTIEN</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Trạng Thái</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                @foreach ($chitiethoadon as $item)
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->MAHOADON }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->MACHITIETHOADON }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->SOLUONG }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->DONGIA }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->THANHTIEN }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->TRANGTHAI }}</p>
+                    </td>
+                    <td class="col-lg-2 mb-lg-0 mb-4">
+                      <a href="{{ route('billdcreate') }}">Create</a>
+                      &nbsp
+                      <a href="{{ route('dbilling.edit',$item->id) }}">Edit</a> 
+                      &nbsp
+                      <a href="{{ route('dbilling.detail',$item->id) }}">Details</a> 
+                      &nbsp
+                      <a href="{{ route('dbilling.delete',$item->id) }}">Delete</a>
+                    </td>
+                  </tr>
+                </tbody>
+                @endforeach
+              </table>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
