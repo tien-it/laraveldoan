@@ -21,9 +21,17 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link " href="{{route('accountadmin')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Account</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -32,7 +40,7 @@
           <a class="nav-link " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                <i class="ni ni-shop text-warning text-sm opacity-10"></i>
               </div>
             
             <span class="nav-link-text ms-1">Product type</span>
@@ -41,17 +49,17 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Invoice</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{{route('detailbilling')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing Detail</span>
+            <span class="nav-link-text ms-1">Invoice Detail</span>
           </a>
         </li>
         <li class="nav-item">
@@ -246,58 +254,32 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PRODUCT CODE</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->MASANPHAM }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->MALOAISP }}</p>
                 </dd>
                 <dt class = "col-sm-2">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TRADEMARK</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->THUONGHIEU }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->TENSP }}</p>
                 </dd>
                 <dt class = "col-sm-2">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">PRODUCER</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->NOISANXUAT }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->TRANGTHAI }}</p>
                 </dd>
                 <dt class = "col-sm-2">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">MATERIAL</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->CHATLIEU }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->HINHANH }}</p>
                 </dd>
                 <dt class = "col-sm-2">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STYLE</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->PHONGCACH }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->MOTA }}</p>
                 </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">COLOR</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->MAUSAC }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">LENGTH</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->CHIEUDAI }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">WIDTH</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->CHIEURONG }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">INSURANCE</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $sanpham->BAOHANH }}</p>
-                </dd>
-                <a href="{{ route('prdD',$sanpham->id) }}" class="btn btn-primary col-sm-1" role="button">Edit</a>
-                &nbsp
                 <a href="{{ route('tables') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
             </dl>
             </div>

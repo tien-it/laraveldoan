@@ -31,7 +31,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -40,7 +40,7 @@
           <a class="nav-link " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-shop text-warning text-sm opacity-10"></i>
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
               </div>
             
             <span class="nav-link-text ms-1">Product type</span>
@@ -247,59 +247,70 @@
                 
             <h1>Details</h1>
             <div>
-            <h4>Invoice</h4>
-            <hr />   
-            
+            <h4>Account</h4>
+            <hr />       
             <dl class="row">
                  <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer Code</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->MAKHACHHANG }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->TENDANGNHAP }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fullname</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->HOVATEN }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->email }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Password</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->password }}</p>
                 </dd>
                 <dt class = "col-sm-2">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number Phone</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->SDT }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->SODIENTHOAI }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Address</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->DIACHI }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->DIACHI }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->GHICHU }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->GIOITINH }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Create</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Birth Day</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYLAP }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->NGAYSINH }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Eelivery Date</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Is Admin</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYGIAO }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TONGTIEN }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->ISADMIN }}</p>
                 </dd>
                 <dt class = "col-sm-2">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TRANGTHAI }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $taikhoan->TRANGTHAI }}</p>
                 </dd>
-                <a href="{{ route('billing') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
+                <a href="{{ route('accountadmin') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
             </dl>
             </div>
             </div>

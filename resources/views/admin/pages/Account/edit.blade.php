@@ -37,7 +37,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('producttype')}}">
+          <a class="nav-link  " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-shop text-warning text-sm opacity-10"></i>
@@ -239,73 +239,62 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
+      ----------
+
+
       <div class="row">
         <div class="col-sm-12">
 
           <div class="card sm-4">
             <div class="row container ">
-                
-            <h1>Details</h1>
-            <div>
-            <h4>Invoice</h4>
-            <hr />   
+                <h1>Edit</h1>
             
-            <dl class="row">
-                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer Code</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->MAKHACHHANG }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number Phone</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->SDT }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->DIACHI }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->GHICHU }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Create</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYLAP }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Eelivery Date</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYGIAO }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TONGTIEN }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TRANGTHAI }}</p>
-                </dd>
-                <a href="{{ route('billing') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
-            </dl>
-            </div>
+                <h4>Account</h4>
+                <hr /> 
+                <div class="col-md-5">
+                    <form action="{{ route('accountadmin.update',$taikhoan->id)}}" method="POST">
+                      @csrf
+                        <div class="form-group">
+                            <input class="form-control" type="text" id ="TENDANGNHAP" name="TENDANGNHAP" value="{{ $taikhoan->TENDANGNHAP }}"  placeholder="Username" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "HOVATEN" name="HOVATEN" value="{{ $taikhoan->HOVATEN }}"  placeholder="Fullname">
+                        </div> 
+                        <div class="form-group">
+                            <input class="form-control" type="text" id ="email" name="email" value="{{ $taikhoan->email }}"  placeholder="Email" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id ="password" name="password" value="{{ $taikhoan->password }}"  placeholder="Password" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "SODIENTHOAI" name="SODIENTHOAI" value="{{ $taikhoan->SODIENTHOAI }}"  placeholder="Number Phone">
+                        </div> 
+                        <div class="form-group">
+                            <input class="form-control" type="text" id ="DIACHI" name="DIACHI" value="{{ $taikhoan->DIACHI }}"  placeholder="Address" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "GIOITINH" name="GIOITINH" value="{{ $taikhoan->GIOITINH }}"  placeholder="Gender">
+                        </div> 
+                        <div class="form-group">
+                            <input class="form-control" type="datetime-local" id ="NGAYSINH" name="NGAYSINH" value="{{ $taikhoan->NGAYSINH }}"  placeholder="Birth Day" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "ISADMIN" name="ISADMIN" value="{{ $taikhoan->ISADMIN }}"  placeholder="ISADMIN">
+                        </div> 
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI" value="{{ $taikhoan->TRANGTHAI }}"  placeholder="Status">
+                        </div> 
+                            <button class="btn btn-primary">Save</button>
+                            <a href="{{ route('accountadmin') }}" class="btn btn-danger" role="button">Back</a>
+                    </form>
+                </div>
             </div>
               </div>
             </div>
           </div>
+
+
+          ----------------------------
         </div>
       </div>
       <footer class="footer pt-3  ">

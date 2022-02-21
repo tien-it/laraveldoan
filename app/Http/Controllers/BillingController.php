@@ -52,8 +52,22 @@ class BillingController extends Controller
         $hoadon->SDT=$request->SDT;
         $hoadon->DIACHI=$request->DIACHI;
         $hoadon->GHICHU=$request->GHICHU;
-        $hoadon->NGAYLAP=$request->NGAYLAP;
-        $hoadon->NGAYGIAO=$request->NGAYGIAO;
+        if($request->NGAYLAP==null)
+        {
+            $hoadon->NGAYLAP=$hoadon->NGAYLAP;
+        }
+        else
+        {
+            $hoadon->NGAYLAP=$request->NGAYLAP;
+        }
+        if($request->NGAYGIAO==null)
+        {
+            $hoadon->NGAYGIAO=$hoadon->NGAYGIAO;
+        }
+        else
+        {
+            $hoadon->NGAYGIAO=$request->NGAYGIAO;
+        }
         $hoadon->TONGTIEN=$request->TONGTIEN;
         $hoadon->TRANGTHAI=$request->TRANGTHAI;
         $hoadon->save();

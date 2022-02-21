@@ -29,7 +29,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('tables')}}">
+          <a class="nav-link active" href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('billing')}}">
+          <a class="nav-link " href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
@@ -244,64 +244,53 @@
 
           <div class="card sm-4">
             <div class="row container ">
-                
-            <h1>Details</h1>
-            <div>
-            <h4>Invoice</h4>
-            <hr />   
+                <h1>Create</h1>
             
-            <dl class="row">
-                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer Code</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->MAKHACHHANG }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number Phone</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->SDT }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->DIACHI }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->GHICHU }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Create</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYLAP }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Eelivery Date</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYGIAO }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TONGTIEN }}</p>
-                </dd>
-                <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
-                </dt>
-                <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TRANGTHAI }}</p>
-                </dd>
-                <a href="{{ route('billing') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
-            </dl>
-            </div>
+                <h4>Product</h4>
+                <hr />
+                <div class="col-md-5">
+                    <form action="{{ route('PRDDetail.create') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                          <a>Product Code</a>
+                            <input class="form-control" type="text" id ="MASANPHAM" name="MASANPHAM"  placeholder="Product Code" >
+                        </div>
+                        <div class="form-group">
+                          <a>Trademark</a>
+                            <input class="form-control" type="text" id ="THUONGHIEU" name="THUONGHIEU"  placeholder="Trademark" >
+                        </div>
+                        <div class="form-group">
+                          <a>Author</a>
+                            <input class="form-control" type="text" id ="NOISANXUAT" name="NOISANXUAT"  placeholder="Author" >
+                        </div>
+                        <div class="form-group">
+                          <a>Material</a>
+                            <input class="form-control" type="text" id ="CHATLIEU" name="CHATLIEU"  placeholder="Material" >
+                        </div>
+                        <div class="form-group">
+                          <a>Style</a>
+                            <input class="form-control" type="text" id ="PHONGCACH" name="PHONGCACH"  placeholder="Style" >
+                        </div>
+                        <div class="form-group">
+                          <a>Color</a>
+                            <input class="form-control" type="text" id ="MAUSAC" name="MAUSAC"  placeholder="Color" >
+                        </div>
+                        <div class="form-group">
+                          <a>Length</a>
+                            <input class="form-control" type="text" id ="CHIEUDAI" name="CHIEUDAI"  placeholder="Length" >
+                        </div>
+                        <div class="form-group">
+                          <a>Width</a>
+                            <input class="form-control" type="text" id ="CHIEURONG" name="CHIEURONG"  placeholder="Width" >
+                        </div>
+                        <div class="form-group">
+                          <a>Insurance</a>
+                            <input class="form-control" type="text" id ="BAOHANH" name="BAOHANH"  placeholder="Insurance" >
+                        </div>
+                            <button class="btn btn-primary">SAVE</button>
+                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
+                    </form>
+                </div>
             </div>
               </div>
             </div>

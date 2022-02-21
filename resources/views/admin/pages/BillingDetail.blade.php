@@ -21,9 +21,17 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
+          <a class="nav-link " href="{{route('accountadmin')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Account</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('tables')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -32,7 +40,7 @@
           <a class="nav-link " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                <i class="ni ni-shop text-warning text-sm opacity-10"></i>
               </div>
             
             <span class="nav-link-text ms-1">Product type</span>
@@ -41,17 +49,17 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Invoice</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{route('detailbilling')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing Detail</span>
+            <span class="nav-link-text ms-1">Invoice Detail</span>
           </a>
         </li>
         <li class="nav-item">
@@ -235,18 +243,20 @@
         <div class="card mb-4">
           <div class="card-header pb-0">
             <h6>Invoice Detail Table</h6>
+            &nbsp
+            <a href="{{ route('billdcreate') }}">Create</a>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
               <table class="table align-items-center justify-content-center mb-0">
                 <thead>
                   <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">MAHOADON</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">MACHITIETHOADON</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">SOLUONG</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">DONGIA</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">THANHTIEN</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Trạng Thái</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Invoice Code</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Invoice Detail Code</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Quantity</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -257,7 +267,7 @@
                       <p class="text-sm font-weight-bold mb-0">{{ $item->MAHOADON }}</p>
                     </td>
                     <td>
-                      <p class="text-sm font-weight-bold mb-0">{{ $item->MACHITIETHOADON }}</p>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->MACHITIETSANPHAM }}</p>
                     </td>
                     <td>
                       <p class="text-sm font-weight-bold mb-0">{{ $item->SOLUONG }}</p>
@@ -272,13 +282,11 @@
                       <p class="text-sm font-weight-bold mb-0">{{ $item->TRANGTHAI }}</p>
                     </td>
                     <td class="col-lg-2 mb-lg-0 mb-4">
-                      <a href="{{ route('billdcreate') }}">Create</a>
+                      <a href="{{ route('detailbilling.edit',$item->id) }}">Edit</a> 
                       &nbsp
-                      <a href="{{ route('dbilling.edit',$item->id) }}">Edit</a> 
+                      <a href="{{ route('detailbilling.detail',$item->id) }}">Details</a> 
                       &nbsp
-                      <a href="{{ route('dbilling.detail',$item->id) }}">Details</a> 
-                      &nbsp
-                      <a href="{{ route('dbilling.delete',$item->id) }}">Delete</a>
+                      <a href="{{ route('detailbilling.delete',$item->id) }}">Delete</a>
                     </td>
                   </tr>
                 </tbody>

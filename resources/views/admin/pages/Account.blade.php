@@ -21,9 +21,17 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <a class="nav-link active" href="{{route('accountadmin')}}">
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
+              </div>
+              <span class="nav-link-text ms-1">Account</span>
+            </a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('tables')}}">
+            <div class="icon icon-sh icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -32,7 +40,7 @@
           <a class="nav-link " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                <i class="ni ni-shop text-warning text-sm opacity-10"></i>
               </div>
             
             <span class="nav-link-text ms-1">Product type</span>
@@ -41,17 +49,17 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Invoice</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{{route('detailbilling')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing Detail</span>
+            <span class="nav-link-text ms-1">Invoice Detail</span>
           </a>
         </li>
         <li class="nav-item">
@@ -230,81 +238,85 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-sm-12">
-
-          <div class="card sm-4">
-            <div class="row container ">
-                <h1>EDIT PRODUCT</h1>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.update',$sanpham->id)}}" method="POST">
-                      @csrf
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã Sản Phẩm</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="MASANPHAM" name="MASANPHAM" value="{{ $sanpham->MASANPHAM }}"  placeholder="Mã Sản Phẩm" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Thương Hiệu</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="THUONGHIEU" name="THUONGHIEU" value="{{ $sanpham->THUONGHIEU }}"  placeholder="Thương Hiệu" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nơi Sản Xuất</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="NOISANXUAT" name="NOISANXUAT" value="{{ $sanpham->NOISANXUAT }}"  placeholder="Nơi Sản Xuất" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Chất Liệu</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="CHATLIEU" name="CHATLIEU" value="{{ $sanpham->CHATLIEU }}"  placeholder="Chất Liệu" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phong Cách</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="PHONGCACH" name="PHONGCACH" value="{{ $sanpham->PHONGCACH }}"  placeholder="Phong Cách" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Màu Sắc</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="MAUSAC" name="MAUSAC" value="{{ $sanpham->MAUSAC }}"  placeholder="Màu Sắc" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">CHIEUDAI</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="CHIEUDAI" name="CHIEUDAI" value="{{ $sanpham->CHIEUDAI }}"  placeholder="Chiều Dài" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Chiều Rộng</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="CHIEURONG" name="CHIEURONG" value="{{ $sanpham->CHIEURONG }}"  placeholder="Chiều Rộng" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Bảo Hành</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="BAOHANH" name="BAOHANH" value="{{ $sanpham->BAOHANH }}"  placeholder="Bảo Hành" >
-                    </dd>
-                            <button class="btn btn-primary">Lưu</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">Trở Về</a>
-                    </form>
-                </div>
-            </div>
-              </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>Account table</h6>
+            &nbsp
+            <a href="{{ route('acccreate') }}">Create</a>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center justify-content-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fullname</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Password</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number Phone</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Gender</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">BirthDay</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Is Admin</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                @foreach ($taikhoan as $item)
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->id }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->TENDANGNHAP }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->HOVATEN }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->email }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->password }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->SODIENTHOAI }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->DIACHI }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->GIOITINH }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->NGAYSINH }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->ISADMIN }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->TRANGTHAI }}</p>
+                    </td>
+                    <td class="col-lg-2 mb-lg-0 mb-4">
+                      <a href="{{ route('accountadmin.edit',$item->id) }}">Edit</a> 
+                      &nbsp
+                      <a href="{{ route('accountadmin.detail',$item->id) }}">Details</a> 
+                      &nbsp
+                      <a href="{{ route('accountadmin.delete',$item->id) }}">Delete</a>
+                    </td>
+                  </tr>
+                </tbody>
+                @endforeach
+              </table>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
@@ -321,8 +333,8 @@
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                    <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                  </li>
+                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                </li>
                 <li class="nav-item">
                   <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
                 </li>

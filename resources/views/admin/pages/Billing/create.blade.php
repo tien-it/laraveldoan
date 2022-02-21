@@ -21,9 +21,17 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link " href="{{route('accountadmin')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Account</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link " href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -32,7 +40,7 @@
           <a class="nav-link  " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                <i class="ni ni-shop text-warning text-sm opacity-10"></i>
               </div>
             
             <span class="nav-link-text ms-1">Product type</span>
@@ -41,17 +49,17 @@
         <li class="nav-item">
           <a class="nav-link active" href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Invoice</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{{route('detailbilling')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing Detail</span>
+            <span class="nav-link-text ms-1">Invoice Detail</span>
           </a>
         </li>
         <li class="nav-item">
@@ -238,7 +246,7 @@
                 <div class="row container ">
                     <h1>Create</h1>
                 
-                    <h4>Product Type</h4>
+                    <h4>Invoice</h4>
                     <hr />     
                     <div class="col-md-5">
                         <form action="{{ route('billing.create') }}" method="POST">
@@ -256,10 +264,10 @@
                                 <input class="form-control" type="text" id = "GHICHU" name="GHICHU"  placeholder="Description">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" id ="NGAYLAP" name="NGAYLAP"  placeholder="Date Create" >
+                                <input class="form-control" type="datetime-local" id ="NGAYLAP" name="NGAYLAP"  placeholder="Date Create" >
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" id = "NGAYGIAO" name="NGAYGIAO"  placeholder="Delivery Date">
+                                <input class="form-control" type="datetime-local" id = "NGAYGIAO" name="NGAYGIAO"  placeholder="Delivery Date">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" id ="TONGTIEN" name="TONGTIEN"  placeholder="Total" >

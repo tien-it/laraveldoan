@@ -21,9 +21,17 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link " href="{{route('accountadmin')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Account</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link " href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -32,7 +40,7 @@
             <a class="nav-link active" href="{{route('producttype')}}">
               
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                  <i class="ni ni-shop text-warning text-sm opacity-10"></i>
                 </div>
               
               <span class="nav-link-text ms-1">Product type</span>
@@ -41,17 +49,17 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Invoice</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="{{route('detailbilling')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing Detail</span>
+            <span class="nav-link-text ms-1">Invoice Detail</span>
           </a>
         </li>
         <li class="nav-item">
@@ -230,11 +238,13 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="row">
+    <div class="container row">
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
             <h6>Product types table</h6>
+            &nbsp
+            <a href="{{ route('prdtcreate') }}">Create</a>
           </div>
           <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
@@ -260,13 +270,11 @@
                       <p class="text-sm font-weight-bold mb-0">&nbsp &nbsp {{ $item->TRANGTHAI }}</p>
                     </td>
                     <td class="col-lg-2 mb-lg-0 mb-4">
-                      <a href="{{ route('prdtcreate') }}">Create</a>
+                      <a class="btn btn-primary" href="{{ route('producttype.edit',$item->id) }}">Edit</a> 
                       &nbsp
-                      <a href="{{ route('producttype.edit',$item->id) }}">Edit</a> 
+                      <a class="btn btn-primary"  href="{{ route('producttype.detail',$item->id) }}">Details</a> 
                       &nbsp
-                      <a href="{{ route('producttype.detail',$item->id) }}">Details</a> 
-                      &nbsp
-                      <a href="{{ route('producttype.delete',$item->id) }}">Delete</a>
+                      <a class="btn btn-primary"  href="{{ route('producttype.delete',$item->id) }}">Delete</a>
                     </td>
                   </tr>
                 </tbody>

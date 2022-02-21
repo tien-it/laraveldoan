@@ -28,7 +28,7 @@ class BillingDetailController extends Controller
     {
         $chitiethoadon = new  chitiethoadon();
         $chitiethoadon->MAHOADON=$request->MAHOADON;
-        $chitiethoadon->MACHITIETHOADON=$request->MACHITIETHOADON;
+        $chitiethoadon->MACHITIETSANPHAM=$request->MACHITIETSANPHAM;
         $chitiethoadon->SOLUONG=$request->SOLUONG;
         $chitiethoadon->DONGIA=$request->DONGIA;
         $chitiethoadon->THANHTIEN=$request->THANHTIEN;
