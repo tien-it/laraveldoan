@@ -321,6 +321,7 @@
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Material</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Style</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Color</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Length</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Width</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Insurance</th>
@@ -350,6 +351,9 @@
                     </td>
                     <td>
                       <p class="text-sm font-weight-bold mb-0">{{ $item->MAUSAC }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->GIA }}</p>
                     </td>
                     <td>
                       <p class="text-sm font-weight-bold mb-0">{{ $item->CHIEUDAI }}</p>

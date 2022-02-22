@@ -251,34 +251,64 @@
             <hr />
             <dl class="row">
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PRODUCT CODE</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product Code</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->MALOAISP }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->MASANPHAM }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TRADEMARK</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trademark</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->TENSP }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->THUONGHIEU }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">PRODUCER</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->TRANGTHAI }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->NOISANXUAT }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">MATERIAL</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Material</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->HINHANH }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->CHATLIEU }}</p>
                 </dd>
                 <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STYLE</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Style</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->MOTA }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->PHONGCACH }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Color</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->MAUSAC }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Length</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->CHIEUDAI }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->GIA }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Width</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->CHIEURONG }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Insurance</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->BAOHANH }}</p>
                 </dd>
                 <a href="{{ route('tables') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
             </dl>
