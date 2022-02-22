@@ -41,7 +41,7 @@
 						</a>
 						<h3><a href="{{route('single',$item->id)}}">{{ $item->TENSP }}</a></h3>
 						<div class="price">
-								<h5 class="item_price">$300</h5>
+								<h5 class="item_price">{{ $item->GIA }}</h5>
 								<a href="{{route('add-cart',$item->id)}}" class="item_add">Add To Cart</a>
 								<div class="clearfix"> </div>
 						</div>

@@ -14,7 +14,7 @@
                                 <h3>{{ $sanpham->TENSP }}</h3>
                                 <h1>Description</h1>
                                 <p>{{ $sanpham->MOTA }}</p>
-                                    <label  class="add-to item_price">$300</label>
+                                    <label  class="add-to item_price">{{ $item->GIA }}</label>
                                     <a href="#" class="cart item_add">Add Cart</a>
                             </div>
                         </div>

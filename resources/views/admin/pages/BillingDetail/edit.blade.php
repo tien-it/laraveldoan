@@ -252,11 +252,14 @@
                 <h4>Invoice Detail</h4>
                 <hr />
                 <div class="col-md-5">
-                    <form action="{{ route('detailbilling.update',$chitiethoadon->MACHITIETHOADON)}}" method="POST">
+                    <form action="{{ route('detailbilling.update',$chitiethoadon->id)}}" method="POST">
                       @csrf
                         <div class="form-group">
                             <input class="form-control" type="text" id ="MAHOADON" name="MAHOADON" value="{{ $chitiethoadon->MAHOADON }}"  placeholder="Invoice Code" >
                         </div>
+                        <div class="form-group">
+                          <input class="form-control" type="text" id ="MAHOADON" name="MAHOADON" value="{{ $chitiethoadon->MACHITIETSANPHAM }}"  placeholder="Product Detail Code" >
+                      </div>
                         <div class="form-group">
                             <input class="form-control" type="text" id ="SOLUONG" name="SOLUONG" value="{{ $chitiethoadon->SOLUONG }}"  placeholder="Quantity" >
                         </div>

@@ -252,10 +252,10 @@
             
             <dl class="row">
                   <dt class = "col-sm-2">
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Invoice Detail Code</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product Detail Code</th>
                 </dt>
                 <dd class = "col-sm-10">
-                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->MACHITIETHOADON }}</p>
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitiethoadon->MACHITIETSANPHAM }}</p>
                 </dd>
                  <dt class = "col-sm-2">
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Invoice Code</th>

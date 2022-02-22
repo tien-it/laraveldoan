@@ -276,6 +276,10 @@
                             <input class="form-control" type="text" id ="MAUSAC" name="MAUSAC"  placeholder="Color" >
                         </div>
                         <div class="form-group">
+                          <a>Price</a>
+                            <input class="form-control" type="number" id ="GIA" name="GIA"  placeholder="Price" >
+                        </div>
+                        <div class="form-group">
                           <a>Length</a>
                             <input class="form-control" type="text" id ="CHIEUDAI" name="CHIEUDAI"  placeholder="Length" >
                         </div>
