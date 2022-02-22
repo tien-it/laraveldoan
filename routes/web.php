@@ -41,5 +41,10 @@ Route::prefix('/')->group(function () {
     Route::get('/gio-hang',[giohangController::class,'show'])
     ->name('gio-hang');
     Route::get('/add-cart/{id}', [giohangController::class,'create'])->name('add-cart');
-    
+    Route::get('/clear-cart',[giohangController::class,'destroy'])
+    ->name('clear-cart');
+    Route::get('/delete-cart/{id}',[giohangController::class,'remove'])
+    ->name('remove');
+    Route::get('/thanh-toan',[giohangController::class,'pay'])
+    ->name('pay-cart');
 });

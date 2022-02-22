@@ -5,10 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\giohang;
 use App\Models\sanpham;
+use App\Models\taikhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 class LoginController extends Controller
 {
   /**
@@ -54,8 +54,10 @@ protected $redirectTo = '/user';
             'email' => $request->email,
             'password' => $request->password
         ], $request->get('remember'))) {
-            //lưu id tài khoản để định danh tài khoản đăng nhập
-            session()->put('id_account',$request->id);
+                //lưu id của tài khoản
+            $user = taikhoan::where('email', '=', $request->email)->first();
+             session()->put('id_taikhoan',$user->id);
+
             return redirect()->intended(route('user.index'));
         }
          return back()->withInput($request->only('email','remember'));

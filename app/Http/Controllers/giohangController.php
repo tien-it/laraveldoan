@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\chitiethoadon;
 use App\Models\chitietsanpham;
 use App\Models\giohang;
+use App\Models\sanpham;
 use App\Models\taikhoan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class giohangController extends Controller
 {
     /**
@@ -20,11 +21,12 @@ class giohangController extends Controller
     {
         //
         $giohang = giohang::all();
+        $sanpham = sanpham::all();
         
         if(empty($giohang)){
           return view('user.pages.checkout',['giohang'=>null]);
         }
-        return view('user.pages.checkout',['giohang'=>$giohang]);
+        return view('user.pages.checkout',['giohang'=>$giohang ,'sanpham'=>$sanpham]);
     }
 
     /**
@@ -32,24 +34,36 @@ class giohangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //thêm giỏ hàng
     public function create( int $id)
     {
-        $taikhoan_id =  session() -> get('id_account');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
-        $soluong = 1; /* lấy  số lượng từ request */
-        $sanpham_info = chitietsanpham::where('MASANPHAM',$id)->first(); 
-        echo (' Account ID'+$taikhoan_id);
-        echo ('Thông tin sản phẩm'+$sanpham_info);
-        if(  $taikhoan_id !=null && $sanpham_info !=null )  {
-            $data['MAKHACHHANG'] = 1;
-            $data['MACHITETSANPHAM'] = 1;
-            $data['SOLUONG'] = $soluong;
-            $data['TRANGTHAI'] = 1;
-            
-        } else {
-            return \redirect() -> route('account');
+        if(empty(session() -> get('id_taikhoan'))){
+            return \redirect() -> route('user.login');
         }
-        giohang::add($data);
-        return \redirect() -> route('home');
+        if(!empty(giohang::where('MAKHACHHANG', '=', session() -> get('id_taikhoan'))
+        ->where('MACHITIETSANPHAM', '=', $id)
+         ->first()))
+         {
+
+            $giohang1 = giohang::where('MAKHACHHANG', '=', session() -> get('id_taikhoan'))
+            ->where('MACHITIETSANPHAM', '=', $id)
+            ->first();
+                $giohang1->SOLUONG = 2 ;
+                $giohang1->save();
+            return \redirect() -> route('gio-hang');
+        }
+        $giohang = new giohang();
+        $giohang->MAKHACHHANG = session() -> get('id_taikhoan');
+        $giohang->MACHITIETSANPHAM = $id ;
+        $giohang->SOLUONG = 1 ;
+        $giohang->TRANGTHAI= 1 ;
+        $giohang->save();
+
+        if(empty($giohang) ) {
+            return \redirect() -> route('home');
+        }
+
+        return \redirect() -> route('gio-hang');
     }
 
     /**
@@ -71,8 +85,13 @@ class giohangController extends Controller
      */
     
     /* HI */
+    // hiển thị giỏ hàng ở phí người dùng theo id của người dùng đó
     public function show()
-    {   $taikhoan_id =  session() -> get('id',1);
+     {  
+         if( empty(session() -> get('id_taikhoan'))){
+            return redirect()->route('user.login');
+         }
+          $taikhoan_id =session() -> get('id_taikhoan');
         $giohang = DB::table('giohangs')->join('chitietsanphams','chitietsanphams.id','=','giohangs.MACHITIETSANPHAM')
         ->join('sanphams','sanphams.id','=','chitietsanphams.MASANPHAM')
         ->where('giohangs.MAKHACHHANG','=',$taikhoan_id)
@@ -104,6 +123,7 @@ class giohangController extends Controller
     {
         $taikhoan_id =  session() -> get('id_taikhoan');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
         giohang::destroy($taikhoan_id);
+        return \redirect() -> route('gio-hang');
     }
      /**
      * xóa sản phẩm trong giỏ hàng
@@ -111,10 +131,11 @@ class giohangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function remove($chitietsanpham_id)
+    public function remove($id)
     {
-        $taikhoan_id =  session() ->get('id_taikhoan');
-        giohang::deleted($chitietsanpham_id ,$taikhoan_id);
+       // $taikhoan_id =  session() ->get('id_taikhoan');
+        giohang::remove($id);
+        return \redirect() -> route('gio-hang');
     }
     /**
      * thanh toán

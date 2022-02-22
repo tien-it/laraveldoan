@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class giohang extends Model
 {
     use HasFactory;
-    protected $fillable = [     
+    protected $fillable = [ 
+
         'MAKHACHHANG',
         'MACHITIETSANPHAM',
         'SOLUONG',
         'TRANGTHAI',                              
     ];
-    //protected $primarykey = 'id';
+    protected $primarykey = 'id';
     protected $table = 'giohangs';
 }

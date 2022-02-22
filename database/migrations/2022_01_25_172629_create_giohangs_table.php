@@ -14,12 +14,12 @@ class CreateGiohangsTable extends Migration
     public function up()
     {
         Schema::create('giohangs', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('MAKHACHHANG')->unsigned();;
             $table->integer('MACHITIETSANPHAM')->unsigned();;
             $table->integer('SOLUONG');
             $table->integer('TRANGTHAI');
             $table->timestamps();
-
             $table->foreign('MAKHACHHANG')->references('id')->on('taikhoans');
             $table->foreign('MACHITIETSANPHAM')->references('id')->on('chitietsanphams');
         });
