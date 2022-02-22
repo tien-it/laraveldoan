@@ -57,7 +57,6 @@ protected $redirectTo = '/user';
                 //lưu id của tài khoản
             $user = taikhoan::where('email', '=', $request->email)->first();
              session()->put('id_taikhoan',$user->id);
-
             return redirect()->intended(route('user.index'));
         }
          return back()->withInput($request->only('email','remember'));

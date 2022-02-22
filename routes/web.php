@@ -45,6 +45,6 @@ Route::prefix('/')->group(function () {
     ->name('clear-cart');
     Route::get('/delete-cart/{id}',[giohangController::class,'remove'])
     ->name('remove');
-    Route::get('/thanh-toan',[giohangController::class,'pay'])
+    Route::post('/thanh-toan',[giohangController::class,'pay'])
     ->name('pay-cart');
 });

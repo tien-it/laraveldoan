@@ -1,14 +1,16 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\chitiethoadon;
 use App\Models\chitietsanpham;
 use App\Models\giohang;
+use App\Models\hoadon;
 use App\Models\sanpham;
 use App\Models\taikhoan;
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 class giohangController extends Controller
 {
@@ -121,8 +123,10 @@ class giohangController extends Controller
      */
     public function destroy()
     {
-        $taikhoan_id =  session() -> get('id_taikhoan');/* lấy id của tài khoản từ sesstion với name id_taikhoan */
-        giohang::destroy($taikhoan_id);
+        $taikhoan_id =  session() -> get('id_taikhoan');
+        $gh = giohang::where('MAKHACHHANG', '=', $taikhoan_id)->first();
+       //$taikhoan_id =  session() ->get('id_taikhoan');
+        $gh->delete();
         return \redirect() -> route('gio-hang');
     }
      /**
@@ -133,8 +137,43 @@ class giohangController extends Controller
      */
     public function remove($id)
     {
-       // $taikhoan_id =  session() ->get('id_taikhoan');
-        giohang::remove($id);
+        $taikhoan_id =  session() -> get('id_taikhoan');
+        $gh = giohang::where('MACHITIETSANPHAM','=',$id)->where('MAKHACHHANG', '=', $taikhoan_id)->first();
+       //$taikhoan_id =  session() ->get('id_taikhoan');
+        $gh->delete();
+        return \redirect() -> route('gio-hang');
+    }
+    public function pay(Request $request)
+    {
+        $taikhoan_id =  session() -> get('id_taikhoan');
+        $hoadon= new hoadon();
+        $hoadon->SDT= $request->SDT;
+        $hoadon->DIACHI= $request->DIACHI;
+        $hoadon->GHICHU= $request->GHICHU;
+        $hoadon->MAKHACHHANG = $taikhoan_id;
+        $hoadon->NGAYLAP = new DateTime();
+        $hoadon->NGAYGIAO = new DateTime();
+        $hoadon->TONGTIEN = $request ->TONGTIEN;
+        $hoadon->TRANGTHAI = 1;
+        $hoadon->save();
+        //thêm chi tiết hóa đơn 
+        $gh = giohang::where('MAKHACHHANG', '=', $taikhoan_id)->get();
+        foreach($gh as $item ){
+        $chithiet= new chitiethoadon();
+        $chithiet->MAHOADON = $hoadon->id;
+        $chithiet->MACHITIETSANPHAM= $item->MACHITIETSANPHAM;
+        $chithiet->SOLUONG= $item->SOLUONG;
+        $chithiet->DONGIA = 300;
+        $chithiet->THANHTIEN = $hoadon->TONGTIEN;
+        $chithiet->TRANGTHAI = 1;
+        $chithiet->save();
+        $item->delete();
+         }
+        //xóa giỏ hàng
+        
+       //$taikhoan_id =  session() ->get('id_taikhoan');
+        
+
         return \redirect() -> route('gio-hang');
     }
     /**

@@ -16,7 +16,7 @@ class chitiethoadon extends Model
         'THANHTIEN',
         'TRANGTHAI',          
     ];
-    //protected $primarykey = 'id';
+    protected $primarykey = 'id';
     protected $table = 'chitiethoadons';
 
 }
