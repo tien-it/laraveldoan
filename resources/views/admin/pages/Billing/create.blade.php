@@ -29,7 +29,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
+          <a class="nav-link " href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
@@ -37,7 +37,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('producttype')}}">
+          <a class="nav-link  " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-shop text-warning text-sm opacity-10"></i>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('billing')}}">
+          <a class="nav-link active" href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
@@ -238,39 +238,48 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-sm-12">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-sm-12">
 
-          <div class="card sm-4">
-            <div class="row container ">
-                <h1>Create</h1>
-            
-                <h4>Product</h4>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.create') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="IMAGE" >
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="PRODUCT TYPE CODE">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="PRODUCT NAME">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="DESCRIPTION">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="STATUS">
-                        </div> 
-                            <button class="btn btn-primary">SAVE</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
-                    </form>
+              <div class="card sm-4">
+                <div class="row container ">
+                    <h1>Create</h1>
+                
+                    <h4>Invoice</h4>
+                    <hr />     
+                    <div class="col-md-5">
+                        <form action="{{ route('billing.create') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <input class="form-control" type="text" id ="MAKHACHHANG" name="MAKHACHHANG"  placeholder="Customer Code" >
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id = "SDT" name="SDT"  placeholder="Number Phone">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id ="DIACHI" name="DIACHI"  placeholder="Address" >
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id = "GHICHU" name="GHICHU"  placeholder="Description">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="datetime-local" id ="NGAYLAP" name="NGAYLAP"  placeholder="Date Create" >
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="datetime-local" id = "NGAYGIAO" name="NGAYGIAO"  placeholder="Delivery Date">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id ="TONGTIEN" name="TONGTIEN"  placeholder="Total" >
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="Status">
+                            </div>
+                                <button class="btn btn-primary">Create</button>
+                                <a href="{{ route('billing') }}" class="btn btn-danger" role="button">Back</a>
+                        </form>
+                    </div>
                 </div>
-            </div>
               </div>
             </div>
           </div>

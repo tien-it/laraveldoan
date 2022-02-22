@@ -29,7 +29,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
+          <a class="nav-link" href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
@@ -37,7 +37,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('producttype')}}">
+          <a class="nav-link  " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="ni ni-shop text-warning text-sm opacity-10"></i>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('billing')}}">
+          <a class="nav-link active" href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
@@ -239,41 +239,62 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
+      ----------
+
+
       <div class="row">
         <div class="col-sm-12">
 
           <div class="card sm-4">
             <div class="row container ">
-                <h1>Create</h1>
+                <h1>Edit</h1>
             
-                <h4>Product</h4>
-                <hr />
+                <h4>Account</h4>
+                <hr /> 
                 <div class="col-md-5">
-                    <form action="{{ route('tables.create') }}" method="POST">
-                        @csrf
+                    <form action="{{ route('accountadmin.update',$taikhoan->id)}}" method="POST">
+                      @csrf
                         <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="IMAGE" >
+                            <input class="form-control" type="text" id ="TENDANGNHAP" name="TENDANGNHAP" value="{{ $taikhoan->TENDANGNHAP }}"  placeholder="Username" >
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="PRODUCT TYPE CODE">
+                            <input class="form-control" type="text" id = "HOVATEN" name="HOVATEN" value="{{ $taikhoan->HOVATEN }}"  placeholder="Fullname">
                         </div> 
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="PRODUCT NAME">
+                            <input class="form-control" type="text" id ="email" name="email" value="{{ $taikhoan->email }}"  placeholder="Email" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id ="password" name="password" value="{{ $taikhoan->password }}"  placeholder="Password" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "SODIENTHOAI" name="SODIENTHOAI" value="{{ $taikhoan->SODIENTHOAI }}"  placeholder="Number Phone">
                         </div> 
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="DESCRIPTION">
+                            <input class="form-control" type="text" id ="DIACHI" name="DIACHI" value="{{ $taikhoan->DIACHI }}"  placeholder="Address" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "GIOITINH" name="GIOITINH" value="{{ $taikhoan->GIOITINH }}"  placeholder="Gender">
                         </div> 
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="STATUS">
+                            <input class="form-control" type="datetime-local" id ="NGAYSINH" name="NGAYSINH" value="{{ $taikhoan->NGAYSINH }}"  placeholder="Birth Day" >
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "ISADMIN" name="ISADMIN" value="{{ $taikhoan->ISADMIN }}"  placeholder="ISADMIN">
                         </div> 
-                            <button class="btn btn-primary">SAVE</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
+                        <div class="form-group">
+                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI" value="{{ $taikhoan->TRANGTHAI }}"  placeholder="Status">
+                        </div> 
+                            <button class="btn btn-primary">Save</button>
+                            <a href="{{ route('accountadmin') }}" class="btn btn-danger" role="button">Back</a>
                     </form>
                 </div>
             </div>
               </div>
             </div>
           </div>
+
+
+          ----------------------------
         </div>
       </div>
       <footer class="footer pt-3  ">

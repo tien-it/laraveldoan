@@ -29,25 +29,25 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
+          <a class="nav-link " href="{{route('tables')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('producttype')}}">
+          <a class="nav-link  " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-shop text-warning text-sm opacity-10"></i>
+                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
               </div>
             
             <span class="nav-link-text ms-1">Product type</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('billing')}}">
+          <a class="nav-link active" href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
@@ -238,39 +238,54 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-sm-12">
+        <div class="container-fluid py-4">
+          <div class="row">
+            <div class="col-sm-12">
 
-          <div class="card sm-4">
-            <div class="row container ">
-                <h1>Create</h1>
-            
-                <h4>Product</h4>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.create') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="IMAGE" >
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="PRODUCT TYPE CODE">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="PRODUCT NAME">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="DESCRIPTION">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="STATUS">
-                        </div> 
-                            <button class="btn btn-primary">SAVE</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
-                    </form>
+              <div class="card sm-4">
+                <div class="row container ">
+                    <h1>Create</h1>
+                
+                    <h4>Account</h4>
+                    <hr />     
+                    <div class="col-md-5">
+                        <form action="{{ route('accountadmin.create') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <input class="form-control" type="text" id = "TENDANGNHAP" name="TENDANGNHAP"  placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id ="HOVATEN" name="HOVATEN"  placeholder="Fullname" >
+                            </div>
+                            <div class="form-group">
+                              <input class="form-control" type="text" id ="email" name="email"  placeholder="Email" >
+                          </div>
+                          <div class="form-group">
+                              <input class="form-control" type="text" id = "password" name="password"  placeholder="Password">
+                          </div>
+                          <div class="form-group">
+                              <input class="form-control" type="text" id ="SODIENTHOAI" name="SODIENTHOAI"  placeholder="Number Phone" >
+                          </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id = "DIACHI" name="DIACHI"  placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id ="GIOITINH" name="GIOITINH"  placeholder="Gender" >
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="datetime-local" id = "NGAYSINH" name="NGAYSINH"  placeholder="Birth Day">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id ="ISADMIN" name="ISADMIN"  placeholder="IS ADMIN" >
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="Status">
+                            </div>
+                                <button class="btn btn-primary">Create</button>
+                                <a href="{{ route('accountadmin') }}" class="btn btn-danger" role="button">Back</a>
+                        </form>
+                    </div>
                 </div>
-            </div>
               </div>
             </div>
           </div>

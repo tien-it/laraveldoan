@@ -21,16 +21,16 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('accountadmin')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Account</span>
-          </a>
-        </li>
+            <a class="nav-link active" href="{{route('accountadmin')}}">
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
+              </div>
+              <span class="nav-link-text ms-1">Account</span>
+            </a>
+          </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+          <a class="nav-link " href="{{route('tables')}}">
+            <div class="icon icon-sh icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
@@ -238,44 +238,85 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-sm-12">
-
-          <div class="card sm-4">
-            <div class="row container ">
-                <h1>Create</h1>
-            
-                <h4>Product</h4>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.create') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="IMAGE" >
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="PRODUCT TYPE CODE">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="PRODUCT NAME">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="DESCRIPTION">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="STATUS">
-                        </div> 
-                            <button class="btn btn-primary">SAVE</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
-                    </form>
-                </div>
-            </div>
-              </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>Account table</h6>
+            &nbsp
+            <a href="{{ route('acccreate') }}">Create</a>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center justify-content-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fullname</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Password</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number Phone</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Gender</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">BirthDay</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Is Admin</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                @foreach ($taikhoan as $item)
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->id }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->TENDANGNHAP }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->HOVATEN }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->email }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->password }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->SODIENTHOAI }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->DIACHI }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->GIOITINH }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->NGAYSINH }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->ISADMIN }}</p>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{ $item->TRANGTHAI }}</p>
+                    </td>
+                    <td class="col-lg-2 mb-lg-0 mb-4">
+                      <a href="{{ route('accountadmin.edit',$item->id) }}">Edit</a> 
+                      &nbsp
+                      <a href="{{ route('accountadmin.detail',$item->id) }}">Details</a> 
+                      &nbsp
+                      <a href="{{ route('accountadmin.delete',$item->id) }}">Delete</a>
+                    </td>
+                  </tr>
+                </tbody>
+                @endforeach
+              </table>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">

@@ -249,23 +249,44 @@
                 <h4>Product</h4>
                 <hr />
                 <div class="col-md-5">
-                    <form action="{{ route('tables.create') }}" method="POST">
+                    <form action="{{ route('PRDDetail.create') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="IMAGE" >
+                          <a>Product Code</a>
+                            <input class="form-control" type="text" id ="MASANPHAM" name="MASANPHAM"  placeholder="Product Code" >
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="PRODUCT TYPE CODE">
-                        </div> 
+                          <a>Trademark</a>
+                            <input class="form-control" type="text" id ="THUONGHIEU" name="THUONGHIEU"  placeholder="Trademark" >
+                        </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="PRODUCT NAME">
-                        </div> 
+                          <a>Author</a>
+                            <input class="form-control" type="text" id ="NOISANXUAT" name="NOISANXUAT"  placeholder="Author" >
+                        </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="DESCRIPTION">
-                        </div> 
+                          <a>Material</a>
+                            <input class="form-control" type="text" id ="CHATLIEU" name="CHATLIEU"  placeholder="Material" >
+                        </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="STATUS">
-                        </div> 
+                          <a>Style</a>
+                            <input class="form-control" type="text" id ="PHONGCACH" name="PHONGCACH"  placeholder="Style" >
+                        </div>
+                        <div class="form-group">
+                          <a>Color</a>
+                            <input class="form-control" type="text" id ="MAUSAC" name="MAUSAC"  placeholder="Color" >
+                        </div>
+                        <div class="form-group">
+                          <a>Length</a>
+                            <input class="form-control" type="text" id ="CHIEUDAI" name="CHIEUDAI"  placeholder="Length" >
+                        </div>
+                        <div class="form-group">
+                          <a>Width</a>
+                            <input class="form-control" type="text" id ="CHIEURONG" name="CHIEURONG"  placeholder="Width" >
+                        </div>
+                        <div class="form-group">
+                          <a>Insurance</a>
+                            <input class="form-control" type="text" id ="BAOHANH" name="BAOHANH"  placeholder="Insurance" >
+                        </div>
                             <button class="btn btn-primary">SAVE</button>
                             <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
                     </form>

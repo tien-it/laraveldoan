@@ -13,8 +13,7 @@ class SanPhamController extends Controller
 {   
         function tables()
         {
-            $sanpham = sanpham::all();
-            return view('admin.pages.tables',['sanpham'=>$sanpham]);
+            return view('admin.pages.tables',['sanpham'=>sanpham::all(),'chitietsanpham'=>chitietsanpham::all()]);
         }   
         function show()
         {
@@ -38,7 +37,14 @@ class SanPhamController extends Controller
         {
             return view('admin.pages.Products.create');
         }
-        
+        function detail($id)
+    {
+        $sanpham = sanpham::find($id);
+        if(empty($sanpham)){
+                return view('admin.pages.home');
+        }
+        return view('admin.pages.Products.detail',['sanpham'=>$sanpham]);
+    }
     function create(Request $request)
     {
         $sanpham = new  sanpham();
@@ -51,19 +57,13 @@ class SanPhamController extends Controller
         if(empty($sanpham)){
             return view('admin.pages.home');
         }
-        return view('admin.pages.tables',['sanpham'=>sanpham::all()]);
+        return view('admin.pages.tables',['sanpham'=>sanpham::all(),'chitietsanpham'=>chitietsanpham::all()]);
     }
-    function prdD($id){
-        $sanpham = DB::table('chitietsanphams')->find($id);
-            if(empty($sanpham)){
-                return view('admin.pages.table');
-            }
-            return view('admin.pages.Products.editDetail',['sanpham'=>$sanpham]);
-    }
+
     function edit($id){
         $sanpham = DB::table('sanphams')->find($id);
             if(empty($sanpham)){
-                return view('admin.pages.table');
+                return view('admin.pages.home');
             }
             return view('admin.pages.Products.edit',['sanpham'=>$sanpham]);
     }
@@ -79,7 +79,7 @@ class SanPhamController extends Controller
         if(empty($sanpham)){
             return view('admin.pages.home');
         }
-        return view('admin.pages.tables',['sanpham'=>sanpham::all()]);
+        return view('admin.pages.tables',['sanpham'=>sanpham::all(),'chitietsanpham'=>chitietsanpham::all()]);
     }
     function delete($id)
     {
@@ -88,6 +88,6 @@ class SanPhamController extends Controller
         if(empty($sanpham)){
             return view('admin.pages.home');
         }
-        return view('admin.pages.tables',['sanpham'=>sanpham::all()]);
+        return view('admin.pages.tables',['sanpham'=>sanpham::all(),'chitietsanpham'=>chitietsanpham::all()]);
     }
 }

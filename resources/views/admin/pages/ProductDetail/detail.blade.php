@@ -244,32 +244,45 @@
 
           <div class="card sm-4">
             <div class="row container ">
-                <h1>Create</h1>
-            
-                <h4>Product</h4>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.create') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <input class="form-control" type="text" id ="HINHANH" name="HINHANH"  placeholder="IMAGE" >
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MALOAISP" name="MALOAISP"  placeholder="PRODUCT TYPE CODE">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TENSP" name="TENSP"  placeholder="PRODUCT NAME">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "MOTA" name="MOTA" placeholder="DESCRIPTION">
-                        </div> 
-                        <div class="form-group">
-                            <input class="form-control" type="text" id = "TRANGTHAI" name="TRANGTHAI"  placeholder="STATUS">
-                        </div> 
-                            <button class="btn btn-primary">SAVE</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">BACK</a>
-                    </form>
-                </div>
+                
+            <h1>Details</h1>
+            <div>
+            <h4>Product</h4>
+            <hr />
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PRODUCT CODE</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->MALOAISP }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TRADEMARK</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->TENSP }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">PRODUCER</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->TRANGTHAI }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">MATERIAL</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->HINHANH }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STYLE</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $chitietsanpham->MOTA }}</p>
+                </dd>
+                <a href="{{ route('tables') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
+            </dl>
+            </div>
             </div>
               </div>
             </div>

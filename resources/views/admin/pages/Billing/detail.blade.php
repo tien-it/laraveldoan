@@ -21,9 +21,17 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{route('tables')}}">
+          <a class="nav-link " href="{{route('accountadmin')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="ni ni-circle-08 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Account</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('tables')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-shop text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
           </a>
@@ -32,18 +40,26 @@
           <a class="nav-link " href="{{route('producttype')}}">
             
               <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                <i class="ni ni-shop text-warning text-sm opacity-10"></i>
               </div>
             
             <span class="nav-link-text ms-1">Product type</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{route('billing')}}">
+          <a class="nav-link active" href="{{route('billing')}}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Invoice</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{{route('detailbilling')}}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-single-copy-04 text-success text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Invoice Detail</span>
           </a>
         </li>
         <li class="nav-item">
@@ -228,69 +244,64 @@
 
           <div class="card sm-4">
             <div class="row container ">
-                <h1>EDIT PRODUCT</h1>
-                <hr />
-                <div class="col-md-5">
-                    <form action="{{ route('tables.update',$sanpham->id)}}" method="POST">
-                      @csrf
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã Sản Phẩm</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="MASANPHAM" name="MASANPHAM" value="{{ $sanpham->MASANPHAM }}"  placeholder="Mã Sản Phẩm" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Thương Hiệu</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="THUONGHIEU" name="THUONGHIEU" value="{{ $sanpham->THUONGHIEU }}"  placeholder="Thương Hiệu" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nơi Sản Xuất</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="NOISANXUAT" name="NOISANXUAT" value="{{ $sanpham->NOISANXUAT }}"  placeholder="Nơi Sản Xuất" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Chất Liệu</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="CHATLIEU" name="CHATLIEU" value="{{ $sanpham->CHATLIEU }}"  placeholder="Chất Liệu" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phong Cách</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="PHONGCACH" name="PHONGCACH" value="{{ $sanpham->PHONGCACH }}"  placeholder="Phong Cách" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Màu Sắc</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="MAUSAC" name="MAUSAC" value="{{ $sanpham->MAUSAC }}"  placeholder="Màu Sắc" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">CHIEUDAI</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="CHIEUDAI" name="CHIEUDAI" value="{{ $sanpham->CHIEUDAI }}"  placeholder="Chiều Dài" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Chiều Rộng</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="CHIEURONG" name="CHIEURONG" value="{{ $sanpham->CHIEURONG }}"  placeholder="Chiều Rộng" >
-                    </dd>
-                    <dt class = "col-sm-4">
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Bảo Hành</th>
-                    </dt>
-                    <dd class = "col-sm-8">
-                        <input class="form-control" type="text" id ="BAOHANH" name="BAOHANH" value="{{ $sanpham->BAOHANH }}"  placeholder="Bảo Hành" >
-                    </dd>
-                            <button class="btn btn-primary">Lưu</button>
-                            <a href="{{ route('tables') }}" class="btn btn-danger" role="button">Trở Về</a>
-                    </form>
-                </div>
+                
+            <h1>Details</h1>
+            <div>
+            <h4>Invoice</h4>
+            <hr />   
+            
+            <dl class="row">
+                 <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer Code</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->MAKHACHHANG }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Number Phone</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->SDT }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->DIACHI }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->GHICHU }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Create</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYLAP }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Eelivery Date</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->NGAYGIAO }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TONGTIEN }}</p>
+                </dd>
+                <dt class = "col-sm-2">
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
+                </dt>
+                <dd class = "col-sm-10">
+                    <p class="text-sm font-weight-bold mb-0">{{ $hoadon->TRANGTHAI }}</p>
+                </dd>
+                <a href="{{ route('billing') }}" class="btn btn-primary col-sm-1" role="button">Back</a>
+            </dl>
+            </div>
             </div>
               </div>
             </div>
@@ -313,8 +324,8 @@
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                    <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                  </li>
+                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                </li>
                 <li class="nav-item">
                   <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
                 </li>
